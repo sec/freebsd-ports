@@ -53,6 +53,8 @@ SOURCEBUILT_ARTIFACTS_DISTNAME=	Private.SourceBuilt.Artifacts.${SDKVERSION}${SDK
 SDK_DISTNAME=			dotnet-sdk-${SDKVERSION}-freebsd-${DARCH}
 DARCH=				${ARCH:S|amd64|x64|:C|aarch64|arm64|}
 
+PLIST_SUB=			DARCH=${DARCH}
+
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} >= 1400000
