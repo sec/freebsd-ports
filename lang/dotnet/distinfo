@@ -7,3 +7,7 @@ SHA256 (dotnet/dotnet-sdk-8.0.102-freebsd-x64.tar.gz) = 7669a998f63b8739c56f67fc
 SIZE (dotnet/dotnet-sdk-8.0.102-freebsd-x64.tar.gz) = 385985123
 SHA256 (dotnet/dotnet-dotnet-v8.0.3_GH0.tar.gz) = 1cf467f47168572aae8cbcbf8fede972b31c8c1177f6584560a7fe4aecd66d19
 SIZE (dotnet/dotnet-dotnet-v8.0.3_GH0.tar.gz) = 281407995
+SHA256 (dotnet/Private.SourceBuilt.Artifacts.8.0.102-servicing.24073.1.freebsd.13-arm64.tar.gz) = c560f602f8e4c3bce183780774c2de461f223d2f53ea7a074954d4addc943d99
+SIZE (dotnet/Private.SourceBuilt.Artifacts.8.0.102-servicing.24073.1.freebsd.13-arm64.tar.gz) = 1225994761
+SHA256 (dotnet/dotnet-sdk-8.0.102-freebsd-arm64.tar.gz) = d8ae7239cf5d4b033824e26b0f7718dc1e7a7b225763f1231e7b13565b9fea89
+SIZE (dotnet/dotnet-sdk-8.0.102-freebsd-arm64.tar.gz) = 376501661
