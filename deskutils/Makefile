@@ -210,6 +210,7 @@
     SUBDIR += pim-data-exporter
     SUBDIR += pim-sieve-editor
     SUBDIR += pinot
+    SUBDIR += pipecolor
     SUBDIR += plan
     SUBDIR += plans
     SUBDIR += plasma5-milou
@@ -226,9 +227,11 @@
     SUBDIR += puush
     SUBDIR += py-autokey
     SUBDIR += py-bugwarrior
+    SUBDIR += py-i3-gnome-pomodoro
     SUBDIR += py-khal
     SUBDIR += py-khard
     SUBDIR += py-paperless
+    SUBDIR += py-paperless-ngx
     SUBDIR += py-py3status
     SUBDIR += py-pystash
     SUBDIR += py-send2trash
@@ -242,9 +245,9 @@
     SUBDIR += qownnotes
     SUBDIR += qtfeedback
     SUBDIR += recoll
+    SUBDIR += rednotebook
     SUBDIR += remind
     SUBDIR += rolo
-    SUBDIR += rubrica
     SUBDIR += rubygem-shellplay
     SUBDIR += rubygem-taskjuggler
     SUBDIR += semantik

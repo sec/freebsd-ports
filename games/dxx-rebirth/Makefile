@@ -13,8 +13,6 @@ LICENSE_FILE_GPLv3=	${WRKSRC}/GPL-3.txt
 LICENSE_FILE_PARALLAX=	${WRKSRC}/COPYING.txt
 LICENSE_PERMS_PARALLAX=	dist-mirror pkg-mirror auto-accept
 
-BROKEN_aarch64=	clang crashes, see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=276700
-
 BUILD_DEPENDS=	as:devel/binutils
 LIB_DEPENDS=	libphysfs.so:devel/physfs \
 		libpng.so:graphics/png
@@ -38,7 +36,8 @@ MAKE_ARGS+=	lto=1
 
 .if ${ARCH} == armv7 || ${ARCH} == i386 || ${ARCH} == powerpc
 CXXFLAGS+=	-Wno-error=missing-field-initializers -Wno-error=maybe-uninitialized
-USES+=		compiler:gcc-c++11-lib
+USES+=		compiler:c++11-lib
+USE_GCC=	12
 .endif
 
 post-install:

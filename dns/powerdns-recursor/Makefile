@@ -1,5 +1,6 @@
 PORTNAME=	recursor
-DISTVERSION=	5.0.1
+DISTVERSION=	5.0.2
+PORTREVISION=	2
 CATEGORIES=	dns
 MASTER_SITES=	http://downloads.powerdns.com/releases/
 PKGNAMEPREFIX=	powerdns-
@@ -28,7 +29,8 @@ USES=		autoreconf cargo compiler:c++11-lib cpe gmake libtool \
 CPE_VENDOR=	powerdns
 USE_RC_SUBR=	pdns-recursor
 
-GNU_CONFIGURE=	YES
+GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--sysconfdir=${PREFIX}/etc/pdns \
 		--with-libsodium=no \
 		--with-service-user=pdns \

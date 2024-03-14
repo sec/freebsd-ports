@@ -1,5 +1,5 @@
 PORTNAME=	aws-sdk-resources
-PORTVERSION=	3.184.0
+PORTVERSION=	3.187.0
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
@@ -36,6 +36,7 @@ RUN_DEPENDS=	rubygem-aws-sdk-accessanalyzer>=1<2:devel/rubygem-aws-sdk-accessana
 		rubygem-aws-sdk-appstream>=1<2:devel/rubygem-aws-sdk-appstream \
 		rubygem-aws-sdk-appsync>=1<2:devel/rubygem-aws-sdk-appsync \
 		rubygem-aws-sdk-arczonalshift>=1<2:devel/rubygem-aws-sdk-arczonalshift \
+		rubygem-aws-sdk-artifact>=1<2:devel/rubygem-aws-sdk-artifact \
 		rubygem-aws-sdk-athena>=1<2:devel/rubygem-aws-sdk-athena \
 		rubygem-aws-sdk-auditmanager>=1<2:devel/rubygem-aws-sdk-auditmanager \
 		rubygem-aws-sdk-augmentedairuntime>=1<2:devel/rubygem-aws-sdk-augmentedairuntime \
@@ -54,6 +55,7 @@ RUN_DEPENDS=	rubygem-aws-sdk-accessanalyzer>=1<2:devel/rubygem-aws-sdk-accessana
 		rubygem-aws-sdk-billingconductor>=1<2:devel/rubygem-aws-sdk-billingconductor \
 		rubygem-aws-sdk-braket>=1<2:devel/rubygem-aws-sdk-braket \
 		rubygem-aws-sdk-budgets>=1<2:devel/rubygem-aws-sdk-budgets \
+		rubygem-aws-sdk-chatbot>=1<2:devel/rubygem-aws-sdk-chatbot \
 		rubygem-aws-sdk-chime>=1<2:devel/rubygem-aws-sdk-chime \
 		rubygem-aws-sdk-chimesdkidentity>=1<2:devel/rubygem-aws-sdk-chimesdkidentity \
 		rubygem-aws-sdk-chimesdkmediapipelines>=1<2:devel/rubygem-aws-sdk-chimesdkmediapipelines \
@@ -357,6 +359,7 @@ RUN_DEPENDS=	rubygem-aws-sdk-accessanalyzer>=1<2:devel/rubygem-aws-sdk-accessana
 		rubygem-aws-sdk-ssoadmin>=1<2:devel/rubygem-aws-sdk-ssoadmin \
 		rubygem-aws-sdk-states>=1<2:devel/rubygem-aws-sdk-states \
 		rubygem-aws-sdk-storagegateway>=1<2:devel/rubygem-aws-sdk-storagegateway \
+		rubygem-aws-sdk-supplychain>=1<2:devel/rubygem-aws-sdk-supplychain \
 		rubygem-aws-sdk-support>=1<2:devel/rubygem-aws-sdk-support \
 		rubygem-aws-sdk-supportapp>=1<2:devel/rubygem-aws-sdk-supportapp \
 		rubygem-aws-sdk-swf>=1<2:devel/rubygem-aws-sdk-swf \

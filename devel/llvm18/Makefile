@@ -1,5 +1,5 @@
 PORTNAME=	llvm
-DISTVERSION=	18.1.0rc1
+DISTVERSION=	18.1.0
 PORTREVISION=	0
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
@@ -83,6 +83,7 @@ CMAKE_ARGS+=	-DLLVM_ENABLE_LIBXML2=OFF
 CMAKE_ARGS+=	-DLLVM_ENABLE_LIBEDIT=OFF
 # LLVM likes to pick up ${LOCALBASE}/lib/libtinfo.so.*
 CMAKE_ARGS+=	-DLLVM_ENABLE_TERMINFO=OFF
+CMAKE_ARGS+=	-DLLVM_VERSION_SUFFIX=
 
 # Disable assertions.  They should be disabled by cmake, but USES=cmake
 # overrides -DCMAKE_*_FLAGS_RELEASE.
@@ -154,6 +155,7 @@ CLANG_USE=		PERL5=build
 COMPILER_RT_DESC=	Sanitizer libraries
 COMPILER_RT_CMAKE_ON=	-DCOMPILER_RT_INSTALL_PATH=${LLVM_PREFIX}/lib/clang/${LLVM_RELEASE}
 COMPILER_RT_PLIST_FILES=${_COMPILER_RT_LIBS}
+COMPILER_RT_CONFLICTS_BUILD=${ARCH}-binutils
 DOCS_BUILD_DEPENDS= \
 	${PYTHON_PKGNAMEPREFIX}myst-parser>0:textproc/py-myst-parser@${PY_FLAVOR} \
 	${PYTHON_PKGNAMEPREFIX}sphinx-markdown-tables>=0:textproc/py-sphinx-markdown-tables@${PY_FLAVOR} \
@@ -380,7 +382,8 @@ _BE_INCS_AArch64=	arm_bf16.h
 _BE_LIBS_AArch64=	AsmParser Disassembler Utils
 _BE_LIBS_BACKWARDS_AArch64=Exegesis
 _BE_LIBS_AMDGPU=	AsmParser Disassembler TargetMCA Utils
-_BE_INCS_ARM=		arm_cde.h arm_fp16.h arm_mve.h arm_neon.h arm_sve.h
+_BE_INCS_ARM=		arm_cde.h arm_fp16.h arm_mve.h arm_neon.h arm_sme.h \
+			arm_sve.h arm_vector_types.h
 _BE_LIBS_ARM=		AsmParser Disassembler Utils
 _BE_LIBS_AVR=		AsmParser Disassembler
 _BE_LIBS_BPF=		AsmParser Disassembler
@@ -392,6 +395,8 @@ _BE_LIBS_Mips=		AsmParser Disassembler
 _BE_LIBS_BACKWARDS_Mips=Exegesis
 _BE_LIBS_PowerPC=	AsmParser Disassembler
 _BE_LIBS_BACKWARDS_PowerPC=Exegesis
+_BE_MODS_PowerPC=	__ppc_intrinsics.f18.mod __ppc_intrinsics.mod \
+			mma.f18.mod mma.mod
 _BE_INCS_RISCV=		riscv_vector.h
 _BE_LIBS_RISCV=		AsmParser Disassembler TargetMCA
 _BE_LIBS_Sparc=		AsmParser Disassembler
@@ -407,9 +412,17 @@ _BE_LIBS_${BE}+=	${_BE_LIBS_COMMON:S/^/${BE_ARCH}/} \
 			${_BE_LIBS_${BE_ARCH}:S/^/${BE_ARCH}/} \
 			${_BE_LIBS_BACKWARDS_${BE_ARCH}:S/$/${BE_ARCH}/}
 _BE_INCS_${BE}+=	${_BE_INCS_${BE_ARCH}}
+_BE_MODS_${BE}+=	${_BE_MODS_${BE_ARCH}}
 .endfor
 .endfor
-BE_PATTERN=LLVM(${_BE_LIBS_STANDARD:O:S/$/.a/:ts|})|${_BE_INCS_STANDARD:ts|}
+BE_PATTERN=LLVM(${_BE_LIBS_STANDARD:O:S/$/.a/:ts|})|${_BE_INCS_STANDARD:ts|}|${_BE_MODS_STANDARD:ts|}
+
+.if ${PORT_OPTIONS:MFLANG}
+.for BE in FREEBSD NATIVE STANDARD
+BE_${BE}_PLIST_FILES+= \
+	${_BE_MODS_${BE}:S|^|${LLVM_DIR}/include/flang/|:N${LLVM_DIR}/include/flang/$}
+.endfor
+.endif
 
 .if ${ARCH} == "aarch64"
 COMPILER_RT_ARCHS=	aarch64
@@ -627,7 +640,7 @@ build-plist:
 	    if ($$0 ~ /${COMPILER_RT_PATTERN}/) \
 		{printf "%%%%COMPILER_RT%%%%"} \
 	    if ($$0 ~ /(${EXTRAS_PATTERN})/) {printf "%%%%EXTRAS%%%%"} \
-	    if ($$0 ~ /(${FLANG_PATTERN})/) {printf "%%%%FLANG%%%%"} \
+	    if ($$0 ~ /(${FLANG_PATTERN})/ && $$0 !~ /${BE_PATTERN}$$/) {printf "%%%%FLANG%%%%"} \
 	    if ($$0 ~ /(bin\/(ld|lld|wasm-ld))|liblld[^b]|\/lld\// && $$0 !~ /(lldb)/) {printf "%%%%LLD%%%%"} \
 	    if ($$0 ~ /(argdumper|lldb|six.py)/) {printf "%%%%LLDB%%%%"} \
 	    if ($$0 ~ /(${MLIR_PATTERN})/) {printf "%%%%MLIR%%%%"} \

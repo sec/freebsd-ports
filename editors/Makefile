@@ -65,6 +65,7 @@
     SUBDIR += hnb
     SUBDIR += hte
     SUBDIR += imhex
+    SUBDIR += imhex-current
     SUBDIR += jed
     SUBDIR += jedit
     SUBDIR += joe
@@ -216,6 +217,7 @@
     SUBDIR += neovim-gtk
     SUBDIR += neovim-qt
     SUBDIR += notepadnext
+    SUBDIR += notepadnext-devel
     SUBDIR += novelwriter
     SUBDIR += nvi-m17n
     SUBDIR += nvi2

@@ -1,5 +1,5 @@
 PORTNAME=	cosmic-comp
-PORTVERSION=	s20240129
+PORTVERSION=	s20240311
 CATEGORIES=	x11-wm wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -21,16 +21,25 @@ USES=		cargo gl
 USE_GITHUB=	yes
 USE_GL=		gbm
 GH_ACCOUNT=	pop-os
-GH_TAGNAME=	ce74675
+GH_TAGNAME=	c685440
 GH_TUPLE=	pop-os:iced:0.4.2-1768-g6115280d:iced/../${WRKSRC_crate_iced:T}/iced
 CARGO_FEATURES=	--no-default-features # disable systemd
 PLIST_FILES=	bin/${PORTNAME} \
 		share/wayland-sessions/${PORTNAME:S/-comp//}.desktop \
 
+.if ${MACHINE_ARCH} == i386 || ${MACHINE_ARCH:Marmv?}
+# https://github.com/rust-lang/rust/issues/85598
+LTO_UNSAFE=	yes
+CARGO_ENV+=	CARGO_PROFILE_RELEASE_LTO=false
+.endif
+
 post-patch:
 # XXX Strip double / to help "make cargo-crates"
 	@${REINPLACE_CMD} -e 's,\(smithay\)//,\1/,' \
 		${WRKSRC}/Cargo.lock
+# XXX Drop [patch.<url>] section to help "make cargo-configure"
+	@${REINPLACE_CMD} -e '/\[patch/,$$d' \
+		${WRKSRC}/Cargo.toml
 # Respect PREFIX for system-wide config
 	@${REINPLACE_CMD} -e 's,/etc,${PREFIX}&,' \
 		${WRKSRC}/src/config/mod.rs

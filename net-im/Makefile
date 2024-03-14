@@ -13,6 +13,7 @@
     SUBDIR += dendrite
     SUBDIR += dino
     SUBDIR += discordo
+    SUBDIR += dissent
     SUBDIR += echat
     SUBDIR += ejabberd
     SUBDIR += farstream
@@ -25,7 +26,6 @@
     SUBDIR += gomuks
     SUBDIR += gotktrix
     SUBDIR += gotosocial
-    SUBDIR += gtkcord4
     SUBDIR += gurk-rs
     SUBDIR += icmpchat
     SUBDIR += icqlib
@@ -111,10 +111,12 @@
     SUBDIR += purple-slack
     SUBDIR += py-fbmq
     SUBDIR += py-matrix-synapse
+    SUBDIR += py-mattermostdriver
     SUBDIR += py-nbxmpp
     SUBDIR += py-punjab
     SUBDIR += py-python-telegram-bot
     SUBDIR += py-slack-sdk
+    SUBDIR += py-slackeventsapi
     SUBDIR += py-slixmpp
     SUBDIR += py-telepot
     SUBDIR += py-toxcore-c

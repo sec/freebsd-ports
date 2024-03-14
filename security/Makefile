@@ -68,6 +68,7 @@
     SUBDIR += caesarcipher
     SUBDIR += caldera
     SUBDIR += caldera-ot
+    SUBDIR += caldera4
     SUBDIR += calife
     SUBDIR += cardpeek
     SUBDIR += cargo-audit
@@ -149,17 +150,13 @@
     SUBDIR += enchive
     SUBDIR += eschalot
     SUBDIR += expiretable
-    SUBDIR += f-prot
-    SUBDIR += fakebo
     SUBDIR += fakeident
     SUBDIR += fakeroot
     SUBDIR += farmhash
-    SUBDIR += fcheck
     SUBDIR += fcrackzip
     SUBDIR += ffuf
     SUBDIR += fiked
     SUBDIR += fizz
-    SUBDIR += fl0p
     SUBDIR += flawfinder
     SUBDIR += fprint_demo
     SUBDIR += fprintd
@@ -285,6 +282,7 @@
     SUBDIR += lego
     SUBDIR += libargon2
     SUBDIR += libassuan
+    SUBDIR += libcaes
     SUBDIR += libcryptui
     SUBDIR += libdecaf
     SUBDIR += libecc
@@ -330,7 +328,6 @@
     SUBDIR += libwhisker
     SUBDIR += libxcrypt
     SUBDIR += libyubikey
-    SUBDIR += libzrtpcppcore
     SUBDIR += lime
     SUBDIR += linux-bitwarden-cli
     SUBDIR += linux-c7-ca-certificates
@@ -756,7 +753,6 @@
     SUBDIR += paperkey
     SUBDIR += passh
     SUBDIR += passivedns
-    SUBDIR += pbc
     SUBDIR += pcsc-tools
     SUBDIR += pdfcrack
     SUBDIR += pear-Auth
@@ -799,6 +795,7 @@
     SUBDIR += pecl-pkcs11
     SUBDIR += pecl-scrypt
     SUBDIR += pecl-ssh2
+    SUBDIR += pecl-xxtea
     SUBDIR += peda
     SUBDIR += pev
     SUBDIR += pgpdump
@@ -837,7 +834,6 @@
     SUBDIR += plasma6-ksshaskpass
     SUBDIR += plasma6-kwallet-pam
     SUBDIR += please
-    SUBDIR += poly1305aes
     SUBDIR += portacl-rc
     SUBDIR += proftpd-mod_clamav
     SUBDIR += proxycheck
@@ -946,6 +942,7 @@
     SUBDIR += py-iris-webhooks-module
     SUBDIR += py-itsdangerous
     SUBDIR += py-josepy
+    SUBDIR += py-joserfc
     SUBDIR += py-jwcrypto
     SUBDIR += py-keepkey
     SUBDIR += py-kerberos
@@ -988,7 +985,6 @@
     SUBDIR += py-pyaes
     SUBDIR += py-pyaff4
     SUBDIR += py-pyaxo
-    SUBDIR += py-pyblake2
     SUBDIR += py-pyclamd
     SUBDIR += py-pycryptodome
     SUBDIR += py-pycryptodome-test-vectors
@@ -1005,7 +1001,6 @@
     SUBDIR += py-pysaml24
     SUBDIR += py-pysaml26
     SUBDIR += py-pyscard
-    SUBDIR += py-pysha3
     SUBDIR += py-pysodium
     SUBDIR += py-pyspnego
     SUBDIR += py-python-axolotl
@@ -1292,7 +1287,7 @@
     SUBDIR += sslscan
     SUBDIR += sslsplit
     SUBDIR += sssd
-    SUBDIR += sssd-devel
+    SUBDIR += sssd2
     SUBDIR += ssss
     SUBDIR += sst
     SUBDIR += starttls
@@ -1335,6 +1330,7 @@
     SUBDIR += transcrypt
     SUBDIR += trezord
     SUBDIR += tripwire
+    SUBDIR += trivy
     SUBDIR += trousers
     SUBDIR += trufflehog
     SUBDIR += tthsum
@@ -1353,6 +1349,7 @@
     SUBDIR += vouch-proxy
     SUBDIR += vpnc
     SUBDIR += vuls
+    SUBDIR += vulsrepo
     SUBDIR += vuxml
     SUBDIR += vxquery
     SUBDIR += wapiti
@@ -1372,6 +1369,7 @@
     SUBDIR += wpa_supplicant-devel
     SUBDIR += wpa_supplicant29
     SUBDIR += xca
+    SUBDIR += xhash
     SUBDIR += xinetd
     SUBDIR += xml-security
     SUBDIR += xmlsec1

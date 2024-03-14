@@ -1,5 +1,5 @@
 PORTNAME=	bemenu
-DISTVERSION=	0.6.16
+DISTVERSION=	0.6.20
 CATEGORIES=	x11
 
 MAINTAINER=	uzsolt@FreeBSD.org
@@ -12,12 +12,12 @@ LICENSE_FILE_GPLv3+ =	${WRKSRC}/LICENSE-CLIENT
 LICENSE_FILE_LGPL3+ =	${WRKSRC}/LICENSE-LIB
 
 BUILD_DEPENDS=	scdoc:textproc/scdoc
+LIB_DEPENDS=	libharfbuzz.so:print/harfbuzz
 
 USES=		gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	Cloudef
 USE_LDCONFIG=	yes
-LIB_DEPENDS+=	libharfbuzz.so:print/harfbuzz
 MAKEFILE=	GNUmakefile
 ALL_TARGET=	clients
 PLIST_SUB=	SOVERSION=${DISTVERSION}
@@ -34,8 +34,7 @@ NCURSES_ALL_TARGET=	curses
 WAYLAND_CATEGORIES=	wayland
 WAYLAND_BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
 			wayland-protocols>0:graphics/wayland-protocols
-WAYLAND_LIB_DEPENDS=	libepoll-shim.so:devel/libepoll-shim \
-			libwayland-client.so:graphics/wayland \
+WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 WAYLAND_USES=		gnome pkgconfig
 WAYLAND_USE=		GNOME=cairo,glib20,pango

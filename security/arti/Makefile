@@ -1,5 +1,5 @@
 PORTNAME=	arti
-DISTVERSION=	1.1.12
+DISTVERSION=	1.2.0
 CATEGORIES=	security
 
 MAINTAINER=	cs@FreeBSD.org
@@ -21,7 +21,7 @@ PLIST_SUB=	USERS="${USERS}" GROUPS="${GROUPS}"
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.torproject.org
 GL_ACCOUNT=	tpo/core
-GL_TAGNAME=	d6e89fbb361137efcfb0ce5d66437a6ff77cdb2e
+GL_TAGNAME=	ef374c925a56be2c308bb78f402eca44d98d377b
 CARGO_FEATURES=	tokio rustls
 CARGO_INSTALL=	no
 

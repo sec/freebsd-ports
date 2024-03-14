@@ -89,6 +89,7 @@
     SUBDIR += gqlplus
     SUBDIR += grass7
     SUBDIR += grass8
+    SUBDIR += greptimedb
     SUBDIR += hashtypes
     SUBDIR += hiredis
     SUBDIR += hsqldb
@@ -117,6 +118,7 @@
     SUBDIR += ldb20
     SUBDIR += ldb21
     SUBDIR += ldb22
+    SUBDIR += ldb25
     SUBDIR += leo_center
     SUBDIR += leofs
     SUBDIR += leveldb
@@ -546,7 +548,6 @@
     SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
     SUBDIR += pg_tileserv
-    SUBDIR += pg_vector
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
     SUBDIR += pgagroal
@@ -564,6 +565,7 @@
     SUBDIR += pgpool-II-42
     SUBDIR += pgpool-II-43
     SUBDIR += pgpool-II-44
+    SUBDIR += pgpool-II-45
     SUBDIR += pgreplay
     SUBDIR += pgroonga
     SUBDIR += pgrouting
@@ -572,6 +574,7 @@
     SUBDIR += pgtcl
     SUBDIR += pgtop
     SUBDIR += pguri
+    SUBDIR += pgvector
     SUBDIR += php-tarantool
     SUBDIR += php-xapian
     SUBDIR += php81-dba
@@ -735,6 +738,7 @@
     SUBDIR += py-fdb
     SUBDIR += py-firebirdsql
     SUBDIR += py-flask-sqlalchemy
+    SUBDIR += py-flask-sqlalchemy30
     SUBDIR += py-gdbm
     SUBDIR += py-geoalchemy2
     SUBDIR += py-hiredis
@@ -809,6 +813,7 @@
     SUBDIR += py-sqlalchemy13
     SUBDIR += py-sqlalchemy14
     SUBDIR += py-sqlalchemy20
+    SUBDIR += py-sqlcipher3
     SUBDIR += py-sqlglot
     SUBDIR += py-sqlite-fts4
     SUBDIR += py-sqlite-utils
@@ -1064,7 +1069,7 @@
     SUBDIR += xls2txt
     SUBDIR += xrootd
     SUBDIR += xtrabackup
-    SUBDIR += xtrabackup8
+    SUBDIR += xtrabackup80
     SUBDIR += zodb
 
 .include <bsd.port.subdir.mk>

@@ -1,6 +1,5 @@
 PORTNAME=	libmicrohttpd
-DISTVERSION=	0.9.77
-PORTREVISION=	1
+DISTVERSION=	1.0.1
 CATEGORIES=	www
 MASTER_SITES=	GNU
 
@@ -16,11 +15,12 @@ USE_LDCONFIG=	yes
 CPE_VENDOR=	gnu
 
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 
+INFO=		libmicrohttpd libmicrohttpd-tutorial
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
 
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--disable-examples
 
 OPTIONS_DEFINE=		GNUTLS TESTCURL
@@ -32,7 +32,5 @@ GNUTLS_CONFIGURE_ENABLE=https
 
 TESTCURL_LIB_DEPENDS=	libcurl.so:ftp/curl
 TESTCURL_CONFIGURE_ENABLE=	curl
-
-INFO=			libmicrohttpd libmicrohttpd-tutorial
 
 .include <bsd.port.mk>
