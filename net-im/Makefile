@@ -2,7 +2,6 @@
 
     SUBDIR += beebeep
     SUBDIR += biboumi
-    SUBDIR += cawbird
     SUBDIR += chatterino2
     SUBDIR += climm
     SUBDIR += coccinella
@@ -27,9 +26,9 @@
     SUBDIR += gotktrix
     SUBDIR += gotosocial
     SUBDIR += gurk-rs
+    SUBDIR += iamb
     SUBDIR += icmpchat
     SUBDIR += icqlib
-    SUBDIR += jabberd
     SUBDIR += jarl
     SUBDIR += jicofo
     SUBDIR += jitsi-meet-full
@@ -147,7 +146,6 @@
     SUBDIR += tdlib-purple
     SUBDIR += telegram-cli
     SUBDIR += telegram-desktop
-    SUBDIR += telegram-purple
     SUBDIR += telegramqml
     SUBDIR += teleirc
     SUBDIR += telepathy-accounts-signon
@@ -172,7 +170,6 @@
     SUBDIR += toxext
     SUBDIR += toxic
     SUBDIR += toxins
-    SUBDIR += tut
     SUBDIR += twirssi
     SUBDIR += uTox
     SUBDIR += vqcc-gtk

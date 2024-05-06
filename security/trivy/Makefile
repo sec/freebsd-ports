@@ -1,7 +1,6 @@
 PORTNAME=	trivy
-DISTVERSION=	0.49.1
-PORTREVISION=	1
 DISTVERSIONPREFIX=	v
+DISTVERSION=	0.51.0
 CATEGORIES=	security
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -11,7 +10,7 @@ WWW=		https://github.com/aquasecurity/trivy
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.21
+USES=		go:modules,1.22
 
 GO_MODULE=	github.com/aquasecurity/trivy
 GO_TARGET=	./cmd/trivy
@@ -30,6 +29,5 @@ post-install:
 		${SED} -E -e '/sample$$/ s#^#@sample #; \
 		s#${DATADIR_REL}/bin#@(,,555) ${DATADIR_REL}/bin#; ' >> ${TMPPLIST}
 	cat ${TMPPLIST}
-	
 
 .include <bsd.port.mk>

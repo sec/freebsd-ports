@@ -1,6 +1,6 @@
 PORTNAME=	vlc
 DISTVERSION=	3.0.20
-PORTREVISION=	5
+PORTREVISION=	6
 PORTEPOCH=	4
 CATEGORIES=	multimedia audio net www
 MASTER_SITES=	https://get.videolan.org/${PORTNAME}/${DISTVERSION:S/a$//}/ \
@@ -381,7 +381,6 @@ WITH_DVD_DEVICE?=/dev/cd0
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MDEBUG}
-WITH_DEBUG=yes
 CONFIGURE_ARGS+=--enable-debug --disable-optimizations
 CFLAGS+=-g -O0
 CXXFLAGS+=-g -O0

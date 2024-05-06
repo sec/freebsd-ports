@@ -1,5 +1,5 @@
 PORTNAME=	cbsd
-DISTVERSION=	14.0.6
+DISTVERSION=	14.0.8
 CATEGORIES=	sysutils
 
 MAINTAINER=	olevole@olevole.ru
@@ -15,6 +15,7 @@ LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss \
 		curl:ftp/curl \
 		rsync:net/rsync \
+		jq:textproc/jq \
 		sqlite3:databases/sqlite3 \
 		sudo:security/sudo
 
@@ -57,6 +58,8 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/bin/cbsdsh/cbsd \
 		${STAGEDIR}${PREFIX}/bin
 	${INSTALL_PROGRAM} ${WRKSRC}/misc/src/sipcalc/sipcalc \
+		${STAGEDIR}${PREFIX}/cbsd/misc
+	${INSTALL_PROGRAM} ${WRKSRC}/misc/src/cbsd_md5/cbsd_md5 \
 		${STAGEDIR}${PREFIX}/cbsd/misc
 	${RM} -r ${STAGEDIR}${PREFIX}/cbsd/bin/cbsdsh \
 		${STAGEDIR}${PREFIX}/cbsd/bin/src \

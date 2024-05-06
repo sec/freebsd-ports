@@ -1,5 +1,5 @@
-TIMESTAMP = 1710107821
-SHA256 (go/textproc_vacuum/vacuum-v0.9.10/v0.9.10.mod) = 63897a3d13632b8ef8208ec45bf4e3792c7386fddbc3680285976648d4770590
-SIZE (go/textproc_vacuum/vacuum-v0.9.10/v0.9.10.mod) = 3691
-SHA256 (go/textproc_vacuum/vacuum-v0.9.10/v0.9.10.zip) = ff3bf064445189e4ba600a2a9660f2f58a3e442a43ce6d7a6f08e5ab7fa9d99b
-SIZE (go/textproc_vacuum/vacuum-v0.9.10/v0.9.10.zip) = 2670314
+TIMESTAMP = 1713769633
+SHA256 (go/textproc_vacuum/vacuum-v0.9.15/v0.9.15.mod) = 6d1600fe63a6f2254558c1692f48b03fe078f3ffa6112e64442af6de2a12c7b2
+SIZE (go/textproc_vacuum/vacuum-v0.9.15/v0.9.15.mod) = 3690
+SHA256 (go/textproc_vacuum/vacuum-v0.9.15/v0.9.15.zip) = d34f52ebb9db0efad75dcdbbd52d1dc5d1fead769299cfe632911acd774fc7d0
+SIZE (go/textproc_vacuum/vacuum-v0.9.15/v0.9.15.zip) = 2826861

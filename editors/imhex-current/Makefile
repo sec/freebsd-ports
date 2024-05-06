@@ -1,5 +1,5 @@
 PORTNAME=	imhex
-PORTVERSION=	1.33.1
+PORTVERSION=	1.33.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	editors
 MASTER_SITES=	https://git.sr.ht/~danyspin97/xdgpp/blob/f01f810714443d0f10c333d4d1d9c0383be41375/:xdg \
@@ -73,12 +73,12 @@ GH_TAG_CLI11=	20de8b7
 GH_TAG_EDLIB=	931be2b
 GH_TAG_FMT=	67c0c0c
 GH_TAG_HASHLIBPLUS=	7609c54
-GH_TAG_IMHEX_PATTERNS=	ImHex-v1.33.1
+GH_TAG_IMHEX_PATTERNS=	ImHex-v1.33.2
 GH_TAG_JTHREAD=	0fa8d39
-GH_TAG_LIBROMFS=	61f7e41
-GH_TAG_LIBWOLV=	7806c19
+GH_TAG_LIBROMFS=	03adcfd
+GH_TAG_LIBWOLV=	6b4a9c7
 GH_TAG_NATIVEFILEDIALOG=	5786fab
-GH_TAG_PATTERN_LANGUAGE=	ImHex-v1.33.1
+GH_TAG_PATTERN_LANGUAGE=	ImHex-v1.33.2
 GH_TAG_YARA=	8fa55cd
 
 GL_TAG_IMHEX_BASTION_PATS=	e6deed4
@@ -89,7 +89,8 @@ CXXFLAGS+=	-I${LOCALBASE}/include
 
 CMAKE_ARGS=	-DUSE_SYSTEM_CURL=ON -DUSE_SYSTEM_NLOHMANN_JSON=OFF \
 		-DIMHEX_STRIP_RELEASE=OFF -DIMHEX_PLUGINS_IN_SHARE=ON \
-		-DIMHEX_OFFLINE_BUILD=ON -DIMHEX_USE_GTK_FILE_PICKER=ON
+		-DIMHEX_OFFLINE_BUILD=ON -DIMHEX_USE_GTK_FILE_PICKER=ON \
+		-DIMHEX_IGNORE_BAD_CLONE=ON -DIMHEX_IGNORE_BAD_COMPILER=ON
 
 PORTDOCS=	README.md
 
@@ -98,9 +99,18 @@ NLS_USES=	gettext
 
 .include <bsd.port.pre.mk>
 
-.if (${OSVERSION} < 1302510) \
-	|| (${OSVERSION} >= 1400000 && ${OSVERSION} < 1400504)
+# Before LLVM 17 import into the base system
+.if (${OSVERSION} < 1302510 \
+    || (${OSREL:R} == 14 && ${OSVERSION} < 1400504) \
+    || (${OSREL:R} == 15 && ${OSVERSION} < 1500006))
 IGNORE=	requires libc++ of LLVM 17 on the base system
+.endif
+
+# After LLVM 18 import into the base system
+.if ((${OSREL:R} == 15 && ${OSVERSION} >= 1500018) \
+    || (${OSREL:R} == 14 && ${OSVERSION} >= 1400511) \
+    || (${OSREL:R} == 13 && ${OSVERSION} >= 1303503))
+CXXFLAGS+=	-fexperimental-library -D_LIBCPP_ENABLE_EXPERIMENTAL
 .endif
 
 post-extract:
@@ -114,13 +124,18 @@ post-extract:
 	${CP} -R ${WRKSRC_edlib}/* ${WRKSRC}/lib/third_party/edlib
 	${CP} -R ${WRKSRC_fmt}/* ${WRKSRC}/lib/third_party/fmt
 	${CP} -R ${WRKSRC_hashlibplus}/* ${WRKSRC}/lib/third_party/HashLibPlus
-	${CP} -R ${WRKSRC_jthread}/* ${WRKSRC}/lib/third_party/jthread
 	${CP} -R ${WRKSRC_nativefiledialog}/* ${WRKSRC}/lib/third_party/nativefiledialog
 	${CP} -R ${WRKSRC_yara}/* ${WRKSRC}/lib/third_party/yara/yara
 	${MKDIR} ${WRKDIR}/.build/_deps/imhex_patterns_src
 	${CP} -R ${WRKSRC_imhex_patterns}/* ${WRKDIR}/.build/_deps/imhex_patterns_src
 	${CP} -R ${WRKDIR}/imhex-bastion-pats-${GL_TAG_IMHEX_BASTION_PATS}/* ${WRKDIR}/.build/_deps/imhex_patterns_src/patterns/bastion
 	${CP} -R ${WRKDIR}/imhex-ffx-pats-${GL_TAG_IMHEX_FFX_PATS}/* ${WRKDIR}/.build/_deps/imhex_patterns_src/patterns/ffx
+# Before LLVM 18 import into the base system
+.if ((${OSREL:R} == 15 && ${OSVERSION} < 1500018) \
+    || (${OSREL:R} == 14 && ${OSVERSION} < 1400511) \
+    || (${OSREL:R} == 13 && ${OSVERSION} < 1303503))
+	${CP} -R ${WRKSRC_jthread}/* ${WRKSRC}/lib/third_party/jthread
+.endif
 
 post-patch:
 	${CP} -R ${WRKSRC}/lib/external/libwolv/* ${WRKSRC}/lib/external/pattern_language/external/libwolv

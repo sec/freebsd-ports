@@ -155,6 +155,7 @@
     SUBDIR += hashcash
     SUBDIR += hbiff
     SUBDIR += heirloom-mailx
+    SUBDIR += hydroxide
     SUBDIR += ifile
     SUBDIR += im
     SUBDIR += imapdedup
@@ -198,6 +199,7 @@
     SUBDIR += mailfront
     SUBDIR += mailgraph
     SUBDIR += mailhog
+    SUBDIR += mailio
     SUBDIR += mailman
     SUBDIR += mailman-exim4
     SUBDIR += mailman-postfix

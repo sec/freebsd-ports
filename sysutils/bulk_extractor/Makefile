@@ -1,5 +1,5 @@
 PORTNAME=	bulk_extractor
-PORTVERSION=	2.1.0
+PORTVERSION=	2.1.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -27,17 +27,18 @@ GH_TUPLE=	simsong:be20_api:${GH_TAG_BE20_API}:be20_api \
 		dfxml-working-group:dfxml_cpp:${GH_TAG_DFXML_CPP}:dfxml_cpp \
 		dfxml-working-group:dfxml_schema:${GH_TAG_DFXML_SCHEMA}:dfxml_schema \
 		nemtrif:utfcpp:${GH_TAG_UTFCPP}:utfcpp
-GH_TAG_BE20_API=	c031194
+GH_TAG_BE20_API=	efa4d69
 GH_TAG_DFXML_CPP=	1e92fe8
 GH_TAG_DFXML_SCHEMA=	f2a702e
-GH_TAG_UTFCPP=	2ad9957
+GH_TAG_UTFCPP=	6be08bb
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 CONFIGURE_ARGS=	--enable-exiv2=true
 
 TEST_TARGET=	check
 
-PLIST_FILES=	bin/bulk_extractor man/man1/bulk_extractor.1.gz
+PLIST_FILES=	bin/bulk_extractor share/man/man1/bulk_extractor.1.gz
 
 post-extract:
 	${CP} -R ${WRKSRC_be20_api}/* ${WRKSRC}/src/be20_api/

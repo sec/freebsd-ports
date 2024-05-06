@@ -1,7 +1,6 @@
 PORTNAME=	wlmaker
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.1-450
-DISTVERSIONSUFFIX=	-g1372de3
+DISTVERSION=	0.2
 CATEGORIES=	x11-wm wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -23,7 +22,7 @@ USE_GITHUB=	yes
 USE_GNOME=	cairo
 USE_XORG=	xcb
 GH_ACCOUNT=	phkaeser
-GH_TUPLE=	phkaeser:libbase:eeee6a0:libbase/submodules/libbase
+GH_TUPLE=	phkaeser:libbase:27aae18:libbase/submodules/libbase
 PLIST_FILES=	bin/${PORTNAME} \
 		bin/wlmclock \
 		share/icons/${PORTNAME}/chrome-48x48.png \

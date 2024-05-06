@@ -15,7 +15,6 @@
     SUBDIR += cingb
     SUBDIR += citra
     SUBDIR += citra-qt5
-    SUBDIR += cpmemu
     SUBDIR += cpmtools
     SUBDIR += cpmtools2
     SUBDIR += darcnes
@@ -32,6 +31,7 @@
     SUBDIR += emu64
     SUBDIR += emulationstation
     SUBDIR += fceux
+    SUBDIR += flexemu
     SUBDIR += fmsx
     SUBDIR += frodo
     SUBDIR += fs-uae
@@ -46,7 +46,6 @@
     SUBDIR += hatari
     SUBDIR += hercules
     SUBDIR += higan
-    SUBDIR += hugo
     SUBDIR += hv_kvp_cmd
     SUBDIR += javatari
     SUBDIR += joytran
@@ -115,6 +114,7 @@
     SUBDIR += qemu-user-static
     SUBDIR += qemu-user-static-devel
     SUBDIR += qemu7
+    SUBDIR += qemu8
     SUBDIR += qmc2
     SUBDIR += quasi88
     SUBDIR += reicast
@@ -138,7 +138,6 @@
     SUBDIR += tme
     SUBDIR += tnylpo
     SUBDIR += tpm-emulator
-    SUBDIR += tuxnes
     SUBDIR += uae
     SUBDIR += ucon64
     SUBDIR += uconvert

@@ -23,7 +23,6 @@
     SUBDIR += afterglow
     SUBDIR += age
     SUBDIR += aide
-    SUBDIR += akmos
     SUBDIR += amavisd-milter
     SUBDIR += amavisd-new
     SUBDIR += apache-xml-security-c
@@ -51,6 +50,7 @@
     SUBDIR += bearssl
     SUBDIR += beecrypt
     SUBDIR += beid
+    SUBDIR += beidconnect
     SUBDIR += belier
     SUBDIR += bfbtester
     SUBDIR += binwalk
@@ -147,6 +147,7 @@
     SUBDIR += duo
     SUBDIR += duo_openvpn
     SUBDIR += easy-rsa
+    SUBDIR += enc
     SUBDIR += enchive
     SUBDIR += eschalot
     SUBDIR += expiretable
@@ -268,7 +269,6 @@
     SUBDIR += kpkpass
     SUBDIR += kpmenu
     SUBDIR += krb5
-    SUBDIR += krb5-119
     SUBDIR += krb5-120
     SUBDIR += krb5-121
     SUBDIR += krb5-devel
@@ -297,6 +297,7 @@
     SUBDIR += libkleo
     SUBDIR += libkpass
     SUBDIR += libksba
+    SUBDIR += libmacaroons
     SUBDIR += libmcrypt
     SUBDIR += libnitrokey
     SUBDIR += libntlm
@@ -392,6 +393,7 @@
     SUBDIR += nist-kat
     SUBDIR += nitrokey-app
     SUBDIR += nmap
+    SUBDIR += nmap-devel
     SUBDIR += nss
     SUBDIR += nss_compat_ossl
     SUBDIR += nuclei
@@ -429,6 +431,7 @@
     SUBDIR += openssl31
     SUBDIR += openssl31-quictls
     SUBDIR += openssl32
+    SUBDIR += openssl33
     SUBDIR += openvas
     SUBDIR += openvpn
     SUBDIR += openvpn-admin
@@ -818,6 +821,7 @@
     SUBDIR += pinentry-gnome
     SUBDIR += pinentry-gtk2
     SUBDIR += pinentry-qt5
+    SUBDIR += pinentry-qt6
     SUBDIR += pinentry-tty
     SUBDIR += pixiewps
     SUBDIR += pkcrack
@@ -958,7 +962,6 @@
     SUBDIR += py-mnemonic
     SUBDIR += py-msoffcrypto-tool
     SUBDIR += py-muacrypt
-    SUBDIR += py-nassl
     SUBDIR += py-netbox-secrets
     SUBDIR += py-netmiko
     SUBDIR += py-noiseprotocol
@@ -980,6 +983,8 @@
     SUBDIR += py-pgpdump
     SUBDIR += py-pgpy
     SUBDIR += py-plaso
+    SUBDIR += py-pnu-certwatch
+    SUBDIR += py-pnu-vuxml
     SUBDIR += py-potr
     SUBDIR += py-pwntools
     SUBDIR += py-pyaes
@@ -998,7 +1003,6 @@
     SUBDIR += py-pyotp
     SUBDIR += py-pyotp2289
     SUBDIR += py-pysaml2
-    SUBDIR += py-pysaml24
     SUBDIR += py-pysaml26
     SUBDIR += py-pyscard
     SUBDIR += py-pysodium
@@ -1035,7 +1039,6 @@
     SUBDIR += py-spake2
     SUBDIR += py-ssh-audit
     SUBDIR += py-sshpubkeys
-    SUBDIR += py-sslyze
     SUBDIR += py-stem
     SUBDIR += py-stix
     SUBDIR += py-stix2
@@ -1070,6 +1073,7 @@
     SUBDIR += quantis-kmod
     SUBDIR += racoon2
     SUBDIR += rage-encryption
+    SUBDIR += ratify
     SUBDIR += ratproxy
     SUBDIR += rats
     SUBDIR += rcracki_mt
@@ -1123,7 +1127,6 @@
     SUBDIR += rubygem-hrr_rb_ssh
     SUBDIR += rubygem-hrr_rb_ssh-ed25519
     SUBDIR += rubygem-lockbox
-    SUBDIR += rubygem-metasploit-aggregator
     SUBDIR += rubygem-metasploit-concern
     SUBDIR += rubygem-metasploit-credential
     SUBDIR += rubygem-metasploit-model
@@ -1134,7 +1137,6 @@
     SUBDIR += rubygem-net-scp
     SUBDIR += rubygem-net-scp1
     SUBDIR += rubygem-net-sftp
-    SUBDIR += rubygem-net-sftp2
     SUBDIR += rubygem-net-ssh
     SUBDIR += rubygem-net-ssh-gateway
     SUBDIR += rubygem-net-ssh-krb
@@ -1225,7 +1227,6 @@
     SUBDIR += samhain
     SUBDIR += samhain-client
     SUBDIR += samhain-server
-    SUBDIR += sancp
     SUBDIR += sasp
     SUBDIR += scanlogd
     SUBDIR += scrypt

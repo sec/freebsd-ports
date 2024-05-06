@@ -9,7 +9,6 @@
     SUBDIR += anydesk
     SUBDIR += appwrapper
     SUBDIR += arttime
-    SUBDIR += aspostit
     SUBDIR += ausweisapp2
     SUBDIR += autocutsel
     SUBDIR += baobab
@@ -240,6 +239,7 @@
     SUBDIR += py-todoman
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
+    SUBDIR += py-vorta
     SUBDIR += qlipper
     SUBDIR += qmediamanager
     SUBDIR += qownnotes

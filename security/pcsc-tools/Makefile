@@ -1,5 +1,5 @@
 PORTNAME=	pcsc-tools
-PORTVERSION=	1.7.0
+PORTVERSION=	1.7.1
 CATEGORIES=	security
 MASTER_SITES=	https://pcsc-tools.apdu.fr/
 
@@ -16,5 +16,6 @@ RUN_DEPENDS=	p5-PCSC-Card>=0:devel/p5-PCSC-Card \
 USES=		gmake pkgconfig tar:bzip2 gettext-tools
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 
 .include <bsd.port.mk>

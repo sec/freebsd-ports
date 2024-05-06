@@ -1,5 +1,5 @@
 PORTNAME=	llvm
-DISTVERSION=	18.1.0
+DISTVERSION=	18.1.4
 PORTREVISION=	0
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
@@ -28,7 +28,8 @@ FLAVOR?=	${FLAVORS:[1]}
 lite_PKGNAMESUFFIX=	${LLVM_SUFFIX}-lite
 
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
-LLVM_MAJOR=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
+LLVM_MAJOR_MINOR=${LLVM_RELEASE:C/\.[0-9]$//}
+LLVM_MAJOR=	${LLVM_MAJOR_MINOR:C/\.[0-9]$//}
 LLVM_SUFFIX=	${LLVM_MAJOR}
 PRE_=		${DISTVERSION:C/.*rc.*/pre/:N*[0-9]*}
 RCDIR=		${DISTVERSION:S/${LLVM_RELEASE}//:C|(rc.*)|/\1|}
@@ -84,11 +85,6 @@ CMAKE_ARGS+=	-DLLVM_ENABLE_LIBEDIT=OFF
 # LLVM likes to pick up ${LOCALBASE}/lib/libtinfo.so.*
 CMAKE_ARGS+=	-DLLVM_ENABLE_TERMINFO=OFF
 CMAKE_ARGS+=	-DLLVM_VERSION_SUFFIX=
-
-# Disable assertions.  They should be disabled by cmake, but USES=cmake
-# overrides -DCMAKE_*_FLAGS_RELEASE.
-CFLAGS+=	-DNDEBUG
-CXXFLAGS+=	-DNDEBUG
 
 OPTIONS_DEFINE=	BE_AMDGPU BE_WASM CLANG COMPILER_RT DOCS LLD STATIC_LIBS
 OPTIONS_DEFAULT=	BE_AMDGPU BE_WASM CLANG LLD
@@ -218,7 +214,8 @@ CMAKE_BUILD_TYPE=	RelWithDebInfo
 STRIP=
 .endif
 
-PLIST_SUB+=	LLVM_MAJOR=${LLVM_MAJOR} \
+PLIST_SUB+=	LLVM_MAJOR_MINOR=${LLVM_MAJOR_MINOR} \
+		LLVM_MAJOR=${LLVM_MAJOR} \
 		LLVM_RELEASE=${LLVM_RELEASE} \
 		LLVM_SUFFIX=${LLVM_SUFFIX}
 
@@ -623,8 +620,9 @@ build-plist:
 	    -e 's|release.cmake|%%CMAKE_BUILD_TYPE%%.cmake|' \
 	    -e 's|${LLVM_RELEASE:C/\./\\./g}|%%LLVM_RELEASE%%|' \
 	    -e 's|${LLVM_SUFFIX:C/\./\\./g}|%%LLVM_SUFFIX%%|' \
+	    -e 's|${LLVM_MAJOR_MINOR:C/\./\\./}|%%LLVM_MAJOR_MINOR%%|' \
 	    -e 's|/${LLVM_MAJOR}/|/%%LLVM_MAJOR%%/|' \
-	    -e 's|\([-./]\)${LLVM_MAJOR:C/\./\\./}$$|\1%%LLVM_MAJOR%%|' \
+	    -e 's|\([-./]\)${LLVM_MAJOR}|\1%%LLVM_MAJOR%%|' \
 	    | ${SORT} >> ${PLIST}.tmp
 	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/lit${LLVM_SUFFIX} -type f | \
 	    ${SED} -e 's|${STAGEDIR}${PYTHON_SITELIBDIR}|%%LIT%%%%PYTHON_SITELIBDIR%%|' \

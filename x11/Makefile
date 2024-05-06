@@ -271,8 +271,6 @@
     SUBDIR += mlterm
     SUBDIR += mons
     SUBDIR += mrxvt
-    SUBDIR += mrxvt-devel
-    SUBDIR += multi-aterm
     SUBDIR += mxascii
     SUBDIR += mxico
     SUBDIR += nezd
@@ -283,7 +281,6 @@
     SUBDIR += nvidia-driver-340
     SUBDIR += nvidia-driver-390
     SUBDIR += nvidia-driver-470
-    SUBDIR += nvidia-hybrid-graphics
     SUBDIR += nvidia-secondary-driver
     SUBDIR += nvidia-secondary-driver-390
     SUBDIR += nvidia-settings
@@ -544,7 +541,6 @@
     SUBDIR += xdotool
     SUBDIR += xdpyinfo
     SUBDIR += xdriinfo
-    SUBDIR += xdtm
     SUBDIR += xedit
     SUBDIR += xev
     SUBDIR += xeyes

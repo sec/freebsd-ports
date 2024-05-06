@@ -1,6 +1,6 @@
 PORTNAME=	octave
 PORTVERSION=	${OCTAVE_VERSION}
-PORTREVISION=	6
+PORTREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	GNU
 
@@ -112,13 +112,7 @@ OPENBLAS_USES=	blaslapack:openblas
 NETLIB_USES=	blaslapack:netlib
 ATLAS_USES=	blaslapack:atlas
 
-pre-configure:
-	${REINPLACE_CMD} 's+"makeinfo"+"${LOCALBASE}/bin/makeinfo"+' ${WRKSRC}/libinterp/corefcn/help.cc
-	${REINPLACE_CMD} 's/"-qt=$$qt_version"/"-qt=qt$$qt_version"/' ${WRKSRC}/configure
-
-#post-install:
-#	(cd ${STAGEDIR}${DATADIR} && ${LN} -s ${PORTVERSION}/imagelib  .)
-#	${RM} -r ${STAGEDIR}${DATADIR}/${PORTVERSION}/etc/tests/fixed/${WRKDIR:C+/++:C+/.*++}
+BINARY_ALIAS=	sed=gsed
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

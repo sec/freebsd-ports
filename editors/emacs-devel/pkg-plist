@@ -47,6 +47,7 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/etc/NEWS.27
 %%DATADIR%%/%%EMACS_VER%%/etc/NEWS.28
 %%DATADIR%%/%%EMACS_VER%%/etc/NEWS.29
+%%DATADIR%%/%%EMACS_VER%%/etc/NEWS.unknown
 %%DATADIR%%/%%EMACS_VER%%/etc/NEXTSTEP
 %%DATADIR%%/%%EMACS_VER%%/etc/NXML-NEWS
 %%DATADIR%%/%%EMACS_VER%%/etc/ORG-NEWS
@@ -926,7 +927,6 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/etc/srecode/test.srt
 %%DATADIR%%/%%EMACS_VER%%/etc/srecode/texi.srt
 %%DATADIR%%/%%EMACS_VER%%/etc/srecode/wisent.srt
-%%DATADIR%%/%%EMACS_VER%%/etc/syncdoc-type-hierarchy.el
 %%DATADIR%%/%%EMACS_VER%%/etc/themes/adwaita-theme.el
 %%DATADIR%%/%%EMACS_VER%%/etc/themes/deeper-blue-theme.el
 %%DATADIR%%/%%EMACS_VER%%/etc/themes/dichromacy-theme.el
@@ -979,6 +979,8 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/etc/tutorials/TUTORIAL.zh
 %%DATADIR%%/%%EMACS_VER%%/etc/w32-feature.el
 %%DATADIR%%/%%EMACS_VER%%/etc/yow.lines
+%%DATADIR%%/info/elisp_type_hierarchy.jpg
+%%DATADIR%%/info/elisp_type_hierarchy.txt
 %%DATADIR%%/%%EMACS_VER%%/lisp/COPYING
 %%DATADIR%%/%%EMACS_VER%%/lisp/README
 %%DATADIR%%/%%EMACS_VER%%/lisp/abbrev.el.gz
@@ -1784,6 +1786,8 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/tq.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/trace.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/trace.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/track-changes.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/track-changes.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/unsafep.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/emacs-lisp/unsafep.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/visual-wrap.el.gz
@@ -2157,8 +2161,6 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/gnus.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/gssapi.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/gssapi.elc
-%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/legacy-gnus-agent.el.gz
-%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/legacy-gnus-agent.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/mail-source.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/mail-source.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/message.el.gz
@@ -2195,6 +2197,8 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/mml2015.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnagent.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnagent.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnatom.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnatom.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnbabyl.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnbabyl.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nndiary.el.gz
@@ -2207,6 +2211,8 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nndraft.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nneething.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nneething.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnfeed.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnfeed.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnfolder.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nnfolder.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/gnus/nngateway.el.gz
@@ -3686,6 +3692,8 @@ share/applications/emacsclient-mail.desktop
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/opascal.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/pascal.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/pascal.elc
+%%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/peg.el.gz
+%%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/peg.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/perl-mode.el.gz
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/perl-mode.elc
 %%DATADIR%%/%%EMACS_VER%%/lisp/progmodes/prog-mode.el.gz
