@@ -1,9 +1,10 @@
 PORTNAME=	dotnet
 DISTVERSIONPREFIX=	v
-DISTVERSION=	${DOTNETVERSION}.7
+DISTVERSION=	${DOTNETVERSION}.8
 CATEGORIES=	lang devel
 MASTER_SITES=	https://github.com/dotnet/dotnet/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/release.json?dummy=/:dotnetmanifest \
-		LOCAL/arrowd/dotnet/:bootstrap
+		LOCAL/arrowd/dotnet/:bootstrap \
+		https://github.com/sec/dotnet-core-freebsd-source-build/releases/download/8.0.101-vmr/:bootstrap
 DISTFILES=	release.json-${PORTVERSION}:dotnetmanifest \
 		${BOOTSTRAP_SOURCEBUILT_ARTIFACTS_DISTNAME}${EXTRACT_SUFX}:bootstrap \
 		${BOOTSTRAP_SDK_DISTNAME}${EXTRACT_SUFX}:bootstrap
@@ -40,13 +41,13 @@ BINARY_ALIAS=	grep=${LOCALBASE}/bin/ggrep
 DOTNET_ENV=	PYTHON=${PYTHON_CMD}
 
 BOOTSTRAP_DOTNETVERSION=			8.0
-BOOTSTRAP_SDKVERSION=				${BOOTSTRAP_DOTNETVERSION}.100
-BOOTSTRAP_SDKVERSIONSUFFIX=			-rtm.23551.1
+BOOTSTRAP_SDKVERSION=				${BOOTSTRAP_DOTNETVERSION}.101
+BOOTSTRAP_SDKVERSIONSUFFIX=			-servicing.23601.1
 BOOTSTRAP_SOURCEBUILT_ARTIFACTS_DISTNAME=	Private.SourceBuilt.Artifacts.${BOOTSTRAP_SDKVERSION}${BOOTSTRAP_SDKVERSIONSUFFIX}.freebsd.13-${DOTNET_ARCH}
 BOOTSTRAP_SDK_DISTNAME=				dotnet-sdk-${BOOTSTRAP_SDKVERSION}-freebsd-${DOTNET_ARCH}
 
 DOTNETVERSION=			8.0
-SDKVERSION=			${DOTNETVERSION}.107
+SDKVERSION=			${DOTNETVERSION}.108
 SDKVERSIONSUFFIX=		-servicing.24317.5
 SOURCEBUILT_ARTIFACTS_DISTNAME=	Private.SourceBuilt.Artifacts.${SDKVERSION}${SDKVERSIONSUFFIX}.freebsd.13-${DOTNET_ARCH}
 SDK_DISTNAME=			dotnet-sdk-${SDKVERSION}-freebsd-${DOTNET_ARCH}
@@ -90,6 +91,7 @@ do-build:
 		--clean-while-building \
 		--with-sdk ${WRKDIR}/bootstrap_sdk \
 		--with-packages ${WRKDIR}/packages \
+		--online \
 		-- \
 		-maxcpucount:${MAKE_JOBS_NUMBER}
 
