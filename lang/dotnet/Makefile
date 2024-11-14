@@ -63,10 +63,6 @@ PLIST_SUB=			DOTNET_ARCH=${DOTNET_ARCH} FULL_DOTNETVERSION=${PORTVERSION} \
 LIB_DEPENDS+=	libcrypto.so.111:misc/compat13x
 .endif
 
-.if ${ARCH} == aarch64
-BROKEN=		"crossgen2" exited with code 139
-.endif
-
 post-extract:
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/release.json-${PORTVERSION} ${WRKSRC}/release.json
 
