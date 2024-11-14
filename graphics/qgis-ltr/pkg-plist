@@ -28,7 +28,6 @@ include/qgis/layer.h
 include/qgis/pal.h
 include/qgis/palexception.h
 include/qgis/palrtree.h
-include/qgis/palstat.h
 include/qgis/pointset.h
 include/qgis/priorityqueue.h
 include/qgis/problem.h
@@ -4556,6 +4555,7 @@ share/metainfo/org.qgis.qgis.appdata.xml
 %%DATADIR%%/python/pyplugin_installer/unzip.py
 %%DATADIR%%/python/pyplugin_installer/version_compare.py
 %%DATADIR%%/python/qgis/3d/__init__.py
+%%DATADIR%%/python/qgis/3d/class_map.yaml
 %%DATADIR%%/python/qgis/PyQt/Qsci.py
 %%DATADIR%%/python/qgis/PyQt/Qt.py
 %%DATADIR%%/python/qgis/PyQt/QtCore.py
@@ -4586,6 +4586,7 @@ share/metainfo/org.qgis.qgis.appdata.xml
 %%DATADIR%%/python/qgis/_server.pyi
 %%SERVER%%%%DATADIR%%/python/qgis/_server.so
 %%DATADIR%%/python/qgis/analysis/__init__.py
+%%DATADIR%%/python/qgis/analysis/class_map.yaml
 %%DATADIR%%/python/qgis/core/__init__.py
 %%DATADIR%%/python/qgis/core/additions/__init__.py
 %%DATADIR%%/python/qgis/core/additions/edit.py
@@ -4604,11 +4605,14 @@ share/metainfo/org.qgis.qgis.appdata.xml
 %%DATADIR%%/python/qgis/core/additions/readwritecontextentercategory.py
 %%DATADIR%%/python/qgis/core/additions/runtimeprofiler.py
 %%DATADIR%%/python/qgis/core/additions/validitycheck.py
+%%DATADIR%%/python/qgis/core/class_map.yaml
 %%DATADIR%%/python/qgis/core/contextmanagers.py
 %%DATADIR%%/python/qgis/gui/__init__.py
+%%DATADIR%%/python/qgis/gui/class_map.yaml
 %%DATADIR%%/python/qgis/processing/__init__.py
 %%DATADIR%%/python/qgis/processing/algfactory.py
 %%SERVER%%%%DATADIR%%/python/qgis/server/__init__.py
+%%DATADIR%%/python/qgis/server/class_map.yaml
 %%DATADIR%%/python/qgis/testing/__init__.py
 %%DATADIR%%/python/qgis/testing/mocked.py
 %%DATADIR%%/python/qgis/user.py

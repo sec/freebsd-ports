@@ -28,7 +28,6 @@
     SUBDIR += fixc
     SUBDIR += freqtrade
     SUBDIR += frontaccounting
-    SUBDIR += frontaccounting24
     SUBDIR += gnucash
     SUBDIR += gnucash-docs
     SUBDIR += grisbi
@@ -112,6 +111,7 @@
     SUBDIR += py-exchange-calendars
     SUBDIR += py-ffn
     SUBDIR += py-financedatabase
+    SUBDIR += py-financetoolkit
     SUBDIR += py-finnhub-python
     SUBDIR += py-finviz
     SUBDIR += py-finvizfinance
@@ -145,6 +145,7 @@
     SUBDIR += py-ystockquote
     SUBDIR += qtbitcointrader
     SUBDIR += quantlib
+    SUBDIR += quba-viewer
     SUBDIR += quickfix
     SUBDIR += rubygem-money
     SUBDIR += skrooge

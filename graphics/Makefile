@@ -30,7 +30,6 @@
     SUBDIR += R-cran-png
     SUBDIR += R-cran-qcc
     SUBDIR += R-cran-ragg
-    SUBDIR += R-cran-rgdal
     SUBDIR += R-cran-s2
     SUBDIR += R-cran-scales
     SUBDIR += R-cran-shape
@@ -216,7 +215,6 @@
     SUBDIR += frei0r-plugins-opencv
     SUBDIR += frogr
     SUBDIR += ftgl
-    SUBDIR += fusefs-gphotofs
     SUBDIR += fv
     SUBDIR += fyre
     SUBDIR += g2
@@ -315,7 +313,6 @@
     SUBDIR += gstreamer1-plugins-openexr
     SUBDIR += gstreamer1-plugins-openjpeg
     SUBDIR += gstreamer1-plugins-png
-    SUBDIR += gstreamer1-plugins-qt
     SUBDIR += gstreamer1-plugins-rsvg
     SUBDIR += gstreamer1-plugins-vulkan
     SUBDIR += gstreamer1-plugins-webp
@@ -505,17 +502,15 @@
     SUBDIR += librsvg2
     SUBDIR += librsvg2-rust
     SUBDIR += librtprocess
+    SUBDIR += libskiasharp
     SUBDIR += libsixel
     SUBDIR += libspiro
     SUBDIR += libspng
-    SUBDIR += libsvg
-    SUBDIR += libsvg-cairo
     SUBDIR += libsvgtiny
     SUBDIR += libvisual
     SUBDIR += libvisual04
     SUBDIR += libvisual04-plugins
     SUBDIR += libwmf
-    SUBDIR += libwmf-nox11
     SUBDIR += libwpg03
     SUBDIR += libxisf
     SUBDIR += libyuv
@@ -554,6 +549,11 @@
     SUBDIR += linux-rl9-librsvg2
     SUBDIR += linux-rl9-openjpeg
     SUBDIR += linux-rl9-png
+    SUBDIR += linux-rl9-qt5-qt3d
+    SUBDIR += linux-rl9-qt5-qtgraphicaleffects
+    SUBDIR += linux-rl9-qt5-qtimageformats
+    SUBDIR += linux-rl9-qt5-qtsvg
+    SUBDIR += linux-rl9-qt5-qtwayland
     SUBDIR += linux-rl9-tiff
     SUBDIR += linux-rl9-vulkan
     SUBDIR += linux-rl9-wayland
@@ -563,6 +563,9 @@
     SUBDIR += lux
     SUBDIR += lximage-qt
     SUBDIR += magnum
+    SUBDIR += magnum-examples
+    SUBDIR += magnum-extras
+    SUBDIR += magnum-integration
     SUBDIR += magnum-plugins
     SUBDIR += mahotas
     SUBDIR += maim
@@ -586,7 +589,6 @@
     SUBDIR += metapixel
     SUBDIR += milton
     SUBDIR += minder
-    SUBDIR += ming
     SUBDIR += mirtk
     SUBDIR += movit
     SUBDIR += mozjpeg
@@ -811,6 +813,8 @@
     SUBDIR += php82-gd
     SUBDIR += php83-exif
     SUBDIR += php83-gd
+    SUBDIR += php84-exif
+    SUBDIR += php84-gd
     SUBDIR += phplot
     SUBDIR += picpuz
     SUBDIR += piddle
@@ -865,6 +869,7 @@
     SUBDIR += py-PyOpenGL
     SUBDIR += py-PyOpenGL-accelerate
     SUBDIR += py-actdiag
+    SUBDIR += py-albucore
     SUBDIR += py-albumentations
     SUBDIR += py-altair
     SUBDIR += py-asciitree
@@ -882,6 +887,7 @@
     SUBDIR += py-colorthief
     SUBDIR += py-colorz
     SUBDIR += py-colour
+    SUBDIR += py-contextily
     SUBDIR += py-descartes
     SUBDIR += py-diplib
     SUBDIR += py-django-easy-thumbnails
@@ -897,6 +903,7 @@
     SUBDIR += py-gdal
     SUBDIR += py-geomdl
     SUBDIR += py-geopandas
+    SUBDIR += py-geosnap
     SUBDIR += py-giddy
     SUBDIR += py-gizeh
     SUBDIR += py-glcontext
@@ -912,6 +919,7 @@
     SUBDIR += py-haishoku
     SUBDIR += py-hiplot
     SUBDIR += py-hsluv
+    SUBDIR += py-imagecodecs
     SUBDIR += py-imageio
     SUBDIR += py-imageio-ffmpeg
     SUBDIR += py-imagesize
@@ -946,6 +954,7 @@
     SUBDIR += py-png
     SUBDIR += py-pointpats
     SUBDIR += py-projpicker
+    SUBDIR += py-proplot
     SUBDIR += py-pycha
     SUBDIR += py-pycollada
     SUBDIR += py-pydot
@@ -978,15 +987,19 @@
     SUBDIR += py-pyzbar
     SUBDIR += py-qpageview
     SUBDIR += py-qrencode
+    SUBDIR += py-qt5-3d
     SUBDIR += py-qt6-3d
     SUBDIR += py-qudida
     SUBDIR += py-railroad-diagrams
     SUBDIR += py-rasterio
     SUBDIR += py-rasterstats
     SUBDIR += py-rawkit
+    SUBDIR += py-rawpy
+    SUBDIR += py-rich-pixels
     SUBDIR += py-s2
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
+    SUBDIR += py-simplejpeg
     SUBDIR += py-sorl-thumbnail
     SUBDIR += py-spectra
     SUBDIR += py-sqlalchemy-imageattach
@@ -1002,6 +1015,7 @@
     SUBDIR += py-urbansim
     SUBDIR += py-utm
     SUBDIR += py-vecrec
+    SUBDIR += py-vispy
     SUBDIR += py-visvis
     SUBDIR += py-wand
     SUBDIR += py-webcolors
@@ -1013,6 +1027,7 @@
     SUBDIR += qcustomplot
     SUBDIR += qgis
     SUBDIR += qgis-ltr
+    SUBDIR += qimgv
     SUBDIR += qiv
     SUBDIR += qr-code-generator
     SUBDIR += qt5-3d
@@ -1085,6 +1100,7 @@
     SUBDIR += rubygem-imagesize
     SUBDIR += rubygem-invisible_captcha
     SUBDIR += rubygem-mini_magick
+    SUBDIR += rubygem-mini_magick4
     SUBDIR += rubygem-opengl
     SUBDIR += rubygem-pdfkit
     SUBDIR += rubygem-png
@@ -1146,8 +1162,6 @@
     SUBDIR += ssocr
     SUBDIR += sswf
     SUBDIR += stamp
-    SUBDIR += svg2pdf
-    SUBDIR += svg2png
     SUBDIR += svgalib
     SUBDIR += svgbob
     SUBDIR += svgpp
@@ -1208,6 +1222,7 @@
     SUBDIR += waffle
     SUBDIR += waifu2x-converter-cpp
     SUBDIR += waifu2x-ncnn-vulkan
+    SUBDIR += wallhaven-cli
     SUBDIR += wayland
     SUBDIR += wayland-protocols
     SUBDIR += wayland-utils
@@ -1227,6 +1242,7 @@
     SUBDIR += xfractint
     SUBDIR += xglurbules
     SUBDIR += xgrasp
+    SUBDIR += ximaging
     SUBDIR += xli
     SUBDIR += xmedcon
     SUBDIR += xmlgraphics-commons
@@ -1242,7 +1258,6 @@
     SUBDIR += xpeps
     SUBDIR += xpx
     SUBDIR += xsane
-    SUBDIR += xsvg
     SUBDIR += xtexcad
     SUBDIR += xv
     SUBDIR += xv-m17n
@@ -1260,9 +1275,9 @@
     SUBDIR += zathura-pdf-poppler
     SUBDIR += zathura-ps
     SUBDIR += zbar
+    SUBDIR += zeno
     SUBDIR += zgv
     SUBDIR += zimg
     SUBDIR += zint
-    SUBDIR += zphoto
 
 .include <bsd.port.subdir.mk>

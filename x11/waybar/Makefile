@@ -1,9 +1,13 @@
 PORTNAME=	waybar
-DISTVERSION=	0.10.3
+DISTVERSION=	0.11.0
+PORTREVISION=	1
 CATEGORIES=	x11 wayland
 PKGNAMESUFFIX=	${FLAVOR:N${FLAVORS:[1]}:C/.+/-${FLAVOR}/}
+PATCH_SITES=    https://github.com/Alexays/Waybar/commit/
+# see https://github.com/Alexays/Waybar/issues/3616
+PATCHFILES= 0d02f6877d88551ea2be0cd151c1e6354e208b1c.patch:-p1
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	nivit@FreeBSD.org
 COMMENT=	Highly customizable Wayland bar for Sway and wlroots-based compositors
 WWW=		https://github.com/Alexays/Waybar
 
@@ -88,6 +92,10 @@ MANPAGES_PLIST_FILES=	share/man/man5/${PORTNAME}-battery.5.gz \
 			share/man/man5/${PORTNAME}-image.5.gz \
 			share/man/man5/${PORTNAME}-inhibitor.5.gz \
 			share/man/man5/${PORTNAME}-memory.5.gz \
+			share/man/man5/${PORTNAME}-menu.5.gz \
+			share/man/man5/${PORTNAME}-niri-language.5.gz \
+			share/man/man5/${PORTNAME}-niri-window.5.gz \
+			share/man/man5/${PORTNAME}-niri-workspaces.5.gz \
 			share/man/man5/${PORTNAME}-river-layout.5.gz \
 			share/man/man5/${PORTNAME}-river-mode.5.gz \
 			share/man/man5/${PORTNAME}-river-tags.5.gz \
@@ -154,7 +162,7 @@ post-patch:
 		-e 's,login1\([".]\),ConsoleKit\1,g' \
 		${WRKSRC}/src/modules/gamemode.cpp \
 		${WRKSRC}/src/modules/inhibitor.cpp \
-		${WRKSRC}/src/modules/upower/upower.cpp \
+		${WRKSRC}/src/modules/upower.cpp \
 		${WRKSRC}/src/util/backlight_backend.cpp \
 		${WRKSRC}/src/util/prepare_for_sleep.cpp
 # Respect PREFIX for icons

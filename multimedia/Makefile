@@ -34,8 +34,10 @@
     SUBDIR += cmrtlib
     SUBDIR += cx88
     SUBDIR += dav1d
+    SUBDIR += decord
     SUBDIR += deforaos-player
     SUBDIR += dirac
+    SUBDIR += dovi_tool
     SUBDIR += dragon
     SUBDIR += droidcam
     SUBDIR += dtv-scan-tables
@@ -88,7 +90,6 @@
     SUBDIR += gstreamer1-plugins-dts
     SUBDIR += gstreamer1-plugins-dv
     SUBDIR += gstreamer1-plugins-dvdread
-    SUBDIR += gstreamer1-plugins-gnonlin
     SUBDIR += gstreamer1-plugins-good
     SUBDIR += gstreamer1-plugins-hls
     SUBDIR += gstreamer1-plugins-libde265
@@ -108,9 +109,9 @@
     SUBDIR += gstreamer1-plugins-ugly
     SUBDIR += gstreamer1-plugins-v4l2
     SUBDIR += gstreamer1-plugins-vpx
+    SUBDIR += gstreamer1-plugins-webrtc
     SUBDIR += gstreamer1-plugins-x264
     SUBDIR += gstreamer1-plugins-x265
-    SUBDIR += gstreamer1-qt
     SUBDIR += gstreamer1-rtsp-server
     SUBDIR += gstreamer1-vaapi
     SUBDIR += gstreamer1-validate
@@ -121,10 +122,10 @@
     SUBDIR += haruna
     SUBDIR += harvid
     SUBDIR += helvum
-    SUBDIR += hypnotix
     SUBDIR += intel-media-sdk
     SUBDIR += iso2mkv
     SUBDIR += jellyfin
+    SUBDIR += jellyfin-media-player
     SUBDIR += jmref
     SUBDIR += kaffeine
     SUBDIR += kamoso
@@ -211,6 +212,7 @@
     SUBDIR += linux-rl9-libva
     SUBDIR += linux-rl9-libvdpau
     SUBDIR += linux-rl9-libvpx
+    SUBDIR += linux-rl9-qt5-qtmultimedia
     SUBDIR += linux-tsmuxer
     SUBDIR += linux_dvbwrapper-kmod
     SUBDIR += livego
@@ -302,6 +304,7 @@
     SUBDIR += py-PySceneDetect
     SUBDIR += py-av
     SUBDIR += py-cec
+    SUBDIR += py-decord
     SUBDIR += py-enzyme
     SUBDIR += py-ffmpeg-python
     SUBDIR += py-gstreamer1
@@ -316,11 +319,13 @@
     SUBDIR += py-pymediainfo
     SUBDIR += py-pysubs2
     SUBDIR += py-python-mpv
+    SUBDIR += py-pytube
     SUBDIR += py-soco
     SUBDIR += py-srt
     SUBDIR += py-subliminal
     SUBDIR += py-tartube
     SUBDIR += py-tvnamer
+    SUBDIR += py-ustreamer
     SUBDIR += qmmp-plugin-pack-qt5
     SUBDIR += qmmp-plugin-pack-qt6
     SUBDIR += qmmp-qt5
@@ -405,6 +410,7 @@
     SUBDIR += xporthdmv
     SUBDIR += xvid
     SUBDIR += yamdi
+    SUBDIR += youtui
     SUBDIR += ytfzf
     SUBDIR += zart
     SUBDIR += zoneminder

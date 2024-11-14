@@ -3,6 +3,7 @@
     SUBDIR += 2bsd-vi
     SUBDIR += abiword
     SUBDIR += abiword-docs
+    SUBDIR += ad
     SUBDIR += aee
     SUBDIR += aewan
     SUBDIR += amp
@@ -129,6 +130,7 @@
     SUBDIR += libreoffice-hi
     SUBDIR += libreoffice-hr
     SUBDIR += libreoffice-hsb
+    SUBDIR += libreoffice-hy
     SUBDIR += libreoffice-i18n
     SUBDIR += libreoffice-id
     SUBDIR += libreoffice-is

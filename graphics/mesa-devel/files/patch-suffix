@@ -73,26 +73,17 @@ Library selection is handled by libglvnd and/or libmap.conf.
      )
    ],
    gnu_symbol_visibility : 'hidden',
---- src/gallium/targets/opencl/meson.build.orig	2023-02-01 23:53:26 UTC
-+++ src/gallium/targets/opencl/meson.build
-@@ -30,7 +30,7 @@ llvm_libdir = dep_llvm.get_variable(cmake : 'LLVM_LIBR
+--- src/gallium/targets/dri/meson.build.orig	2024-08-31 18:55:15 UTC
++++ src/gallium/targets/dri/meson.build
+@@ -29,7 +29,7 @@ libgallium_dri = shared_library(
  endif
  
- llvm_libdir = dep_llvm.get_variable(cmake : 'LLVM_LIBRARY_DIR', configtool: 'libdir')
--opencl_libname = with_opencl_icd ? 'MesaOpenCL' : 'OpenCL'
-+opencl_libname = with_opencl_icd ? 'MesaOpenCL' + get_option('egl-lib-suffix') : 'OpenCL'
- 
- polly_dep = null_dep
- polly_isl_dep = null_dep
-@@ -117,7 +117,7 @@ if with_opencl_icd
- 
- if with_opencl_icd
-   _config = configuration_data()
--  _config.set('OPENCL_LIBNAME', 'MesaOpenCL')
-+  _config.set('OPENCL_LIBNAME', 'MesaOpenCL' + get_option('egl-lib-suffix'))
-   _config.set('OPENCL_VERSION', opencl_version)
-   configure_file(
-     configuration : _config,
+ libgallium_dri = shared_library(
+-  libgallium_name,
++  libgallium_name + get_option('egl-lib-suffix'),
+   files('dri_target.c'),
+   include_directories : [
+     inc_include, inc_src, inc_mapi, inc_mesa, inc_gallium, inc_gallium_aux, inc_util, inc_gallium_drivers,
 --- src/gallium/targets/pipe-loader/meson.build.orig	2023-02-01 23:53:26 UTC
 +++ src/gallium/targets/pipe-loader/meson.build
 @@ -44,7 +44,7 @@ endif
@@ -104,23 +95,17 @@ Library selection is handled by libglvnd and/or libmap.conf.
  
  _kmsro_targets = [
     driver_kmsro, driver_v3d, driver_vc4, driver_freedreno, driver_etnaviv,
---- src/gbm/backends/dri/gbm_dri.c.orig	2020-05-30 21:28:01 UTC
-+++ src/gbm/backends/dri/gbm_dri.c
-@@ -307,14 +307,6 @@ dri_bind_extensions(struct gbm_dri_device *dri,
- static const __DRIextension **
- dri_open_driver(struct gbm_dri_device *dri)
- {
--   /* Temporarily work around dri driver libs that need symbols in libglapi
--    * but don't automatically link it in.
--    */
--   /* XXX: Library name differs on per platforms basis. Update this as
--    * osx/cygwin/windows/bsd gets support for GBM..
--    */
--   dlopen("libglapi.so.0", RTLD_LAZY | RTLD_GLOBAL);
--
-    static const char *search_path_vars[] = {
-       /* Read GBM_DRIVERS_PATH first for compatibility, but LIBGL_DRIVERS_PATH
-        * is recommended over GBM_DRIVERS_PATH.
+--- src/gbm/backends/dri/meson.build.orig	2024-09-20 11:03:50 UTC
++++ src/gbm/backends/dri/meson.build
+@@ -9,7 +9,7 @@ libgbm_dri = shared_library(
+ endif
+ 
+ libgbm_dri = shared_library(
+-  'dri_gbm',
++  'dri' + get_option('egl-lib-suffix') + '_gbm',
+   files('gbm_dri.c', 'gbm_driint.h'),
+   include_directories : [incs_gbm, incs_gbm_dri, inc_st_dri, inc_gallium_aux],
+   link_args : [ld_args_gc_sections],
 --- src/gbm/meson.build.orig	2022-09-12 22:59:56 UTC
 +++ src/gbm/meson.build
 @@ -52,7 +52,7 @@ libgbm = shared_library(

@@ -1,5 +1,5 @@
 PORTNAME=	libvirt
-PORTVERSION=	10.3.0
+DISTVERSION=	10.9.0
 CATEGORIES=	devel
 MASTER_SITES=	http://libvirt.org/sources/ \
 		ftp://libvirt.org/libvirt/
@@ -11,13 +11,12 @@ WWW=		https://libvirt.org/
 LICENSE=	LGPL3
 
 LIB_DEPENDS=	libcurl.so:ftp/curl \
-		libgcrypt.so:security/libgcrypt \
 		libgnutls.so:security/gnutls \
 		libxml2.so:textproc/libxml2
 BUILD_DEPENDS=	dnsmasq:dns/dnsmasq \
 		${LOCALBASE}/bin/grep:textproc/gnugrep \
 		gsed:textproc/gsed \
-		rst2html-${PYTHON_VER}:textproc/py-docutils@${PY_FLAVOR} \
+		rst2html:textproc/py-docutils@${PY_FLAVOR} \
 		xsltproc:textproc/libxslt
 RUN_DEPENDS=	dnsmasq:dns/dnsmasq
 
@@ -104,6 +103,7 @@ MESON_ARGS+=	\
 		-Dsecdriver_apparmor=disabled \
 		-Dsecdriver_selinux=disabled \
 		-Dselinux=disabled \
+		-Dssh_proxy=disabled \
 		-Dstorage_disk=disabled \
 		-Dstorage_fs=disabled \
 		-Dstorage_gluster=disabled \
@@ -133,7 +133,7 @@ PORTSCOUT=	limit:\d+\.\d+\.\d+$$
 
 LDFLAGS+=	-L${LOCALBASE}/lib -fstack-protector
 
-USES=		gnome charsetfix compiler:c++0x cpe gettext-runtime gmake libtool \
+USES=		gnome charsetfix compiler:c++0x cpe gettext-runtime gmake \
 	        meson pathfix perl5 python:build pkgconfig shebangfix tar:xz
 USE_GNOME=	glib20
 USE_RC_SUBR=	libvirtd virtlogd
@@ -142,23 +142,21 @@ USE_PERL5=	build
 USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
-SHLIB_VER=	0.10003.0
+SHLIB_VER=	0.10009.0
 PLIST_SUB+=	SHLIB_VER=${SHLIB_VER}
 PORTDOCS=	*
 #SHEBANG_FILES=	src/keycodemapdb/tools/keymap-gen
-BINARY_ALIAS=	python3=${PYTHON_CMD} \
-		rst2man.py=rst2man.py-${PYTHON_VER} \
-		rst2html5.py=rst2html5.py-${PYTHON_VER}
+BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 SUB_FILES=	pkg-message
 
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MQEMU} || ${PORT_OPTIONS:MNSS}
-LIB_DEPENDS+=		libyajl.so:devel/yajl
-MESON_ARGS+=	-Dyajl=enabled
+LIB_DEPENDS+=		libjson-c.so:devel/json-c
+MESON_ARGS+=	-Djson_c=enabled
 .else
-MESON_ARGS+=	-Dyajl=disabled
+MESON_ARGS+=	-Djson_c=disabled
 .endif
 
 .if !${PLIST_SUB:MXEN}
@@ -171,6 +169,7 @@ CONF_FILES=	\
 		libvirt.conf \
 		libvirtd.conf \
 		libxl.conf \
+		network.conf \
 		qemu.conf \
 		virtbhyved.conf \
 		virtlockd.conf \

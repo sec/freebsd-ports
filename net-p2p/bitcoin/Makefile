@@ -1,11 +1,14 @@
 PORTNAME=	bitcoin
-PORTVERSION=	27.1
+PORTVERSION=	28.0
+PORTREVISION=	2
 CATEGORIES=	net-p2p finance
 MASTER_SITES=	https://bitcoincore.org/bin/bitcoin-core-${PORTVERSION}/ \
 		LOCAL/swills:icon
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} bitcoin128.png:icon
 DIST_SUBDIR=	${PORTNAME}
 EXTRACT_ONLY=	${_DISTFILES:N*.png}
+
+PATCH_SITES=	https://github.com/bitcoin-core/gui/commit/
 
 MAINTAINER=	kbowling@FreeBSD.org
 COMMENT?=	Virtual Peer-to-Peer Currency Client (QT)

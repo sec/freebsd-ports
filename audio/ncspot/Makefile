@@ -1,7 +1,7 @@
 PORTNAME=	ncspot
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.1
-PORTREVISION=	1
+DISTVERSION=	1.1.2
+PORTREVISION=	2
 CATEGORIES=	audio
 
 MAINTAINER=	rodrigo@FreeBSD.org
@@ -45,9 +45,6 @@ PORTAUDIO_VARS=		CARGO_FEATURES+=portaudio_backend
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 PULSEAUDIO_USES=	localbase:ldflags
 PULSEAUDIO_VARS=	CARGO_FEATURES+=pulseaudio_backend
-
-post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/ncspot
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

@@ -1,6 +1,6 @@
 PORTNAME=	pipewire
-DISTVERSION=	1.0.4
-PORTREVISION=	3
+DISTVERSION=	1.2.6
+PORTREVISION=	2
 CATEGORIES=	multimedia
 
 MAINTAINER=	arrowd@FreeBSD.org
@@ -20,7 +20,7 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libwebrtc_audio_processing.so:audio/webrtc-audio-processing0
 
 USES=		compiler:c11 gettext-tools gnome localbase:ldflags meson \
-		ncurses pkgconfig python:build shebangfix ssl
+		ncurses pkgconfig python:build readline shebangfix ssl
 USE_GNOME=	glib20
 USE_LDCONFIG=	yes
 
@@ -30,9 +30,13 @@ GL_SITE=	https://gitlab.freedesktop.org
 SHEBANG_FILES=	doc/*.py
 PORTDOCS=	*
 
-OPTIONS_DEFINE=		AVAHI DOCS DOXYGEN GSTREAMER JACK LV2 PULSEAUDIO VULKAN X11_BELL
+OPTIONS_DEFINE=		ALSA AVAHI DOCS DOXYGEN GSTREAMER JACK LV2 PULSEAUDIO \
+			VULKAN X11_BELL
 OPTIONS_DEFAULT=	GSTREAMER JACK
 OPTIONS_SUB=		yes
+
+ALSA_MESON_ENABLED=	alsa pipewire-alsa
+ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 
 AVAHI_DESC=		Automatic service discovery for the Pulseaudio module via Avahi
 AVAHI_IMPLIES=		PULSEAUDIO
@@ -53,6 +57,7 @@ LV2_DESC=		Support lv2-based audio plugins via lilv
 LV2_LIB_DEPENDS=	liblilv-0.so:audio/lilv
 LV2_MESON_ENABLED=	lv2
 
+PULSEAUDIO_DESC=		Enable PulseAudio emulation
 PULSEAUDIO_MESON_ENABLED=	libpulse
 PULSEAUDIO_LIB_DEPENDS=		libpulse.so:audio/pulseaudio
 
@@ -71,8 +76,7 @@ MESON_ARGS=	-D pw-cat=enabled \
 		-D v4l2=enabled \
 		-D raop=enabled \
 		-D session-managers='[]' \
-		-D alsa=disabled \
-		-D pipewire-alsa=disabled \
+		-D compress-offload=disabled \
 		-D avb=disabled \
 		-D bluez5=disabled \
 		-D man=disabled \
@@ -81,10 +85,15 @@ MESON_ARGS=	-D pw-cat=enabled \
 		-D sdl2=disabled \
 		-D selinux=disabled \
 		-D systemd=disabled \
+		-D logind=disabled \
 		-D pipewire-v4l2=disabled \
 		-D libmysofa=disabled \
 		-D libffado=disabled \
+		-D snap=disabled \
+		-D gsettings-pulse-schema=disabled \
 		-D udevrulesdir="${LOCALBASE}/lib/udev/rules.d"
+
+PORTDOCS=	*
 
 # Fake pkg-config support before https://cgit.freebsd.org/src/commit/?id=396851c20aeb
 # but only if devel/ncurses isn't installed

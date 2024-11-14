@@ -1,18 +1,18 @@
 PORTNAME=	sushi
 PORTVERSION=	42.0
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	x11-fm gnome
 MASTER_SITES=	GNOME/sources/${PORTNAME}/${PORTVERSION:C/^([0-9]+)\..*/\1/}
 DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Tool similar to Gloobus Preview that provides quick file previews
-WWW=		http://www.ubuntugeek.com/gnome-sushi-quick-previewer-for-nautilus.html
+WWW=		https://gitlab.gnome.org/GNOME/sushi
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libgcr-base-3.so:security/gcr \
+LIB_DEPENDS=	libgcr-base-3.so:security/gcr3 \
 		libgjs.so:lang/gjs \
 		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
 		libclutter-gst-3.0.so:multimedia/clutter-gst3 \

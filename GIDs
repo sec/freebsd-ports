@@ -276,7 +276,7 @@ keycloak:*:332:
 honeytrap:*:333:
 percona:*:334:
 benthos:*:335:
-# free: 336
+snac:*:336:
 daapd:*:337:
 murmur:*:338:
 mumble-server:*:339:
@@ -286,7 +286,7 @@ openfire:*:342:
 gunicorn:*:343:
 snmpd:*:344:
 _metronome:*:345:
-# free: 346
+ngircd:*:346:
 eturnal:*:347:
 # free: 348
 # free: 349
@@ -303,9 +303,9 @@ prowlarr:*:359:
 v2ray:*:360:
 httptunnel:*:361:
 readarr:*:362:
-# free: 363
-# free: 364
-# free: 365
+victoria-logs:*:363:
+elog:*:364:
+gotify:*:365:
 # free: 366
 # free: 367
 # free: 368
@@ -320,8 +320,8 @@ _wsdd:*:370:
 # free: 377
 # free: 378
 # free: 379
-# free: 380
-# free: 381
+spoofdpi:*:380:
+hydroxide:*:381:
 # free: 382
 # free: 383
 # free: 384
@@ -421,8 +421,8 @@ fiche:*:477:
 prometheus:*:478:
 alertmanager:*:479:
 datadog:*:480:
-# free: 481
-# free: 482
+promxy:*:481:
+openbao:*:482:
 # free: 483
 # free: 484
 # free: 485
@@ -481,7 +481,7 @@ valkey:*:537:
 # free: 538
 # free: 539
 # free: 540
-# free: 541
+ipfixcol2:*:541:
 _flowd:*:542:
 ejabberd:*:543:
 # free: 544
@@ -589,7 +589,7 @@ monkeysphere:*:641:
 # free: 645
 # free: 646
 # free: 647
-# free: 648
+_xrdp:*:648:
 # free: 649
 # free: 650
 # free: 651
@@ -692,7 +692,7 @@ c-lightning:*:735:
 # free: 748
 # free: 749
 # free: 750
-# free: 751
+supysonic:*:751:
 # free: 752
 # free: 753
 # free: 754
@@ -807,7 +807,7 @@ plocate:*:860:
 # free: 863
 # free: 864
 # free: 865
-# free: 866
+vglusers:*:866:
 sqlpage:*:867:
 jellyfin:*:868:
 keyd:*:869:

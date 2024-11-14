@@ -1,6 +1,6 @@
 PORTNAME=	sonarqube
-DISTVERSION=	10.5.1.90531
-PORTREVISION=	7
+DISTVERSION=	10.7.0.96327
+PORTREVISION=	1
 CATEGORIES=	devel security www java
 MASTER_SITES=	https://binaries.sonarsource.com/Distribution/sonarqube/:m_core \
 		https://binaries.sonarsource.com/Distribution/sonar-csharp-plugin/:m_csharp \
@@ -52,11 +52,13 @@ DBBASE_DIR=	/var/db/${PORTNAME}
 DATA_DIR=	${DBBASE_DIR}/data
 TEMP_DIR=	${DBBASE_DIR}/temp
 
-SONARCSHARP_VER=	9.27.0.93347
-SONARJAVA_VER=		8.0.1.36337
-SONARJAVASCRIPT_VER=	10.14.0.26080
-SONARPHP_VER=		3.36.0.11810
-SONARPYTHON_VER=	4.19.0.15616
+# If you want to update plugins, simply update the version number below,
+# and run "make makesum".
+SONARCSHARP_VER=	10.1.0.102936
+SONARJAVA_VER=		8.5.0.37199
+SONARJAVASCRIPT_VER=	10.16.0.27621
+SONARPHP_VER=		3.38.0.12239
+SONARPYTHON_VER=	4.23.0.17664
 SONARVBNET_VER=		${SONARCSHARP_VER}
 
 USERS=		sonarqube

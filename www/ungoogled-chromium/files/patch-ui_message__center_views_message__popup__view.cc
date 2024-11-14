@@ -1,6 +1,6 @@
---- ui/message_center/views/message_popup_view.cc.orig	2024-06-22 08:49:42 UTC
+--- ui/message_center/views/message_popup_view.cc.orig	2024-10-01 07:26:23 UTC
 +++ ui/message_center/views/message_popup_view.cc
-@@ -135,7 +135,7 @@ void MessagePopupView::Show() {
+@@ -144,7 +144,7 @@ std::unique_ptr<views::Widget> MessagePopupView::Show(
    params.z_order = ui::ZOrderLevel::kFloatingWindow;
  // TODO(crbug.com/40118868): Revisit the macro expression once build flag switch
  // of lacros-chrome is complete.

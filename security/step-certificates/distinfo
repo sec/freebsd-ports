@@ -1,5 +1,5 @@
-TIMESTAMP = 1711731230
-SHA256 (go/security_step-certificates/step-certificates-v0.26.0/v0.26.0.mod) = 8c6fa479a3353e3388f2d2b22eae55f02fec0c627449eebd547aaf6b3dd6116a
-SIZE (go/security_step-certificates/step-certificates-v0.26.0/v0.26.0.mod) = 8136
-SHA256 (go/security_step-certificates/step-certificates-v0.26.0/v0.26.0.zip) = a630dbbff154f0fb75ae9ced250df488becf2592d1840c44425d06ead197a161
-SIZE (go/security_step-certificates/step-certificates-v0.26.0/v0.26.0.zip) = 1069995
+TIMESTAMP = 1729364384
+SHA256 (go/security_step-certificates/step-certificates-v0.27.5/v0.27.5.mod) = 035fc4e3449be2e504dd99cf79ed07b27c3d514aee7bb116db4707861620c9d2
+SIZE (go/security_step-certificates/step-certificates-v0.27.5/v0.27.5.mod) = 8344
+SHA256 (go/security_step-certificates/step-certificates-v0.27.5/v0.27.5.zip) = 2c4774a23b31bb2fa3f854776c99269a9add30b0d5dc23b0c301ba46dc77e11c
+SIZE (go/security_step-certificates/step-certificates-v0.27.5/v0.27.5.zip) = 1161319

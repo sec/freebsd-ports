@@ -1,14 +1,17 @@
 PORTNAME=	freefem++
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.14
-PORTREVISION=	6
+PORTREVISION=	8
 CATEGORIES=	math science
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Partial differential equation solver
-WWW=		https://freefem.org/index.html
+WWW=		https://freefem.org/ \
+		https://github.com/FreeFem/FreeFem-sources
 
 LICENSE=	LGPL3
+
+BROKEN_FreeBSD_15=	compilation fails with clang-19, see https://github.com/FreeFem/FreeFem-sources/issues/323
 
 BUILD_DEPENDS=	bash:shells/bash		\
 		gmm++>0:math/gmm++		\

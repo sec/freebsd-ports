@@ -1,8 +1,11 @@
 PORTNAME=	gnome-online-accounts
 PORTVERSION=	3.44.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	net
 MASTER_SITES=	GNOME
+
+PATCH_SITES=	https://gitlab.gnome.org/GNOME/gnome-online-accounts/-/commit/
+PATCHFILES=	b9638e2418408be4906752297e700506766dcf20.patch:-p1
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Interface provider to access the user's online accounts
@@ -18,7 +21,7 @@ LIB_DEPENDS=	libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
 		libsoup-2.4.so:devel/libsoup \
 		librest-0.7.so:devel/librest \
 		libp11-kit.so:security/p11-kit \
-		libgck-1.so:security/gcr
+		libgck-1.so:security/gcr3
 
 PORTSCOUT=	limitw:1,even
 

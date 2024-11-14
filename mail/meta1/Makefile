@@ -1,9 +1,9 @@
 PORTNAME=	meta1
-PORTVERSION=	1.1.0a.18.0
-PORTREVISION=	1
+PORTVERSION=	1.1.0a.20.1
+PORTREVISION=	0
 CATEGORIES=	mail
-MASTER_SITES=	http://www.MeTA1.org/download/.alpha/baddns/
-DISTNAME=	${PORTNAME}-1.1.Alpha19.0
+MASTER_SITES=	http://www.MeTA1.org/download/.alpha/evilinc/
+DISTNAME=	${PORTNAME}-1.1.Alpha20.1
 
 MAINTAINER=	dinoex@FreeBSD.org
 COMMENT=	Secure and efficient mail gateway
@@ -73,7 +73,7 @@ TLS_LDFLAGS=		-L${LOCALBASE}/lib
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400079 || ( ${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=	-Wno-error=int-conversion
 .endif
 

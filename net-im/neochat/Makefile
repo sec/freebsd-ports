@@ -24,7 +24,7 @@ RUN_DEPENDS=	kquickimageeditor>=0.2.0:graphics/kquickimageeditor \
 USES=		cmake compiler:c++20-lang desktop-file-utils kde:5 \
 		pkgconfig qt:5 tar:xz xorg
 USE_QT=		concurrent core dbus declarative graphicaleffects gui imageformats \
-		multimedia network quickcontrols quickcontrols2 \
+		location multimedia network quickcontrols quickcontrols2 \
 		sql widgets xml \
 		buildtools:build linguist:build qmake:build
 USE_KDE=	auth codecs completion config configwidgets coreaddons dbusaddons \
@@ -37,7 +37,7 @@ USE_XORG=	x11
 
 .if ${ARCH:Mpowerpc*}
 USES+=		llvm:min=16
-.elif ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.elif ${OPSYS} == FreeBSD
 # Work around compiler bug, see pr: 272285
 USES+=		llvm
 .endif

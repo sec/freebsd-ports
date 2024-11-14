@@ -12,8 +12,10 @@ LIB_DEPENDS=	libxkbcommon.so:x11/libxkbcommon
 USES=		cmake compiler:c++17-lang gl pkgconfig python \
 		qt-dist:6
 USE_GL=		opengl
-USE_QT=		base languageserver shadertools:build
+USE_QT=		base languageserver shadertools:build svg
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
+
+CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_LTTngUST
 
 .include <bsd.port.options.mk>
 

@@ -1,9 +1,9 @@
 PORTNAME=	shortwave
 DISTVERSION=	3.2.0
-PORTREVISION=	15
+PORTREVISION=	18
 CATEGORIES=	audio
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Listen to internet radio
 WWW=		https://gitlab.gnome.org/World/Shortwave
 
@@ -41,7 +41,6 @@ post-patch:
 # Make each cargo subcommand very verbose
 # Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
-		-e "/cp/s,'target',& / '${CARGO_BUILD_TARGET}'," \
 		${WRKSRC}/src/meson.build
 
 .include <bsd.port.mk>

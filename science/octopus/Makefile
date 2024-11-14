@@ -1,6 +1,6 @@
 PORTNAME=	octopus
 DISTVERSION=	13.0
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	science # chemistry
 MASTER_SITES=	https://octopus-code.org/download/${DISTVERSION}/
 
@@ -9,8 +9,6 @@ COMMENT=	Scientific program aimed at the ab initio virtual experimentation
 WWW=		https://octopus-code.org/new-site/main/
 
 LICENSE=	GPLv2
-
-BROKEN_aarch64=	undefined reference to `__aarch64_cas8_acq_rel' #'`
 
 BUILD_DEPENDS=	bash:shells/bash
 LIB_DEPENDS=	libarpack.so:math/arpack-ng \
@@ -45,6 +43,7 @@ CONFIGURE_ARGS=	--enable-shared --disable-static
 
 LDFLAGS+=	-lsymspg
 FCFLAGS+=	-I${LOCALBASE}/include -ffree-line-length-none
+FCFLAGS+=	-fallow-argument-mismatch # fix build on i386: Error: Type mismatch in argument 'dims' at (1); passed INTEGER(8) to INTEGER(4)
 
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check-short # some tests fail, see https://gitlab.com/octopus-code/octopus/-/issues/805

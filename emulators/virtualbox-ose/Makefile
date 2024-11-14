@@ -1,6 +1,6 @@
 PORTNAME=	virtualbox-ose
 PORTVERSION=	6.1.50
-PORTREVISION?=	2
+PORTREVISION?=	5
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/:src \
 		LOCAL/bofh/emulators/virtualbox-ose:docs
@@ -106,7 +106,7 @@ QT5_CONFIGURE_OFF=	--disable-qt
 QT5_IMPLIES=		X11
 R0LOGGING_IMPLIES=	DEBUG
 UDPTUNNEL_CONFIGURE_OFF=	--disable-udptunnel
-VBOXIMG_LIB_DEPENDS=	libfuse.so.2:sysutils/fusefs-libs
+VBOXIMG_LIB_DEPENDS=	libfuse.so.2:filesystems/fusefs-libs
 VDE_CONFIGURE_ON=	--enable-vde
 VDE_RUN_DEPENDS=	vde_switch:net/vde2
 VNC_CONFIGURE_ON=	--enable-vnc
@@ -167,7 +167,7 @@ PLIST_SUB+=	QT="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MWEBSERVICE}
-USE_RC_SUBR+=	vboxwebsrv
+USE_RC_SUBR+=	vboxinit vboxwebsrv
 VBOX_LINKS+=	vboxwebsrv
 VBOX_UTILS+=	vboxwebsrv webtest
 .endif
@@ -203,8 +203,7 @@ KMK_FLAGS+=	-j${MAKE_JOBS_NUMBER}
 # 1) llvm10 in FreeBSD before r364284 miscompiles virtualbox 6.1 causing errors.
 # 2) llvm15 in FreeBSD miscompiles virtualbox 6.1 causing errors: PR#270189.
 # Force llvm from ports.
-.if ${OPSYS} == FreeBSD && \
-    (${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 || ${OSVERSION} >= 1400079)
+.if ${OPSYS} == FreeBSD
 # USES must be before .include <bsd.port.pre.mk>, but CHOSEN_COMPILER_TYPE must be after.
 # This is a workaround with possibility to define different llvm via VBOX_LLVM_VER in make.conf.
 #USES+=		llvm:min=11,max=14

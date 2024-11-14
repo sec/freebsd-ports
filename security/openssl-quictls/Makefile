@@ -1,7 +1,7 @@
 PORTNAME=	openssl
 DISTVERSIONPREFIX=	${PORTNAME}-
-DISTVERSION=	3.0.13
-PORTREVISION=	5
+PORTVERSION=	3.0.15
+PORTREVISION=	1
 DISTVERSIONSUFFIX=	-quic1
 CATEGORIES=	security devel
 PKGNAMESUFFIX=	-${GH_ACCOUNT}
@@ -138,7 +138,7 @@ ZLIB_CONFIGURE_ON=	zlib-dynamic
 
 SHLIBS=			lib/engines-${OPENSSL_SHLIBVER}/loader_attic.so
 
-PORTSCOUT=		limit=^3\.0\.
+PORTSCOUT=		limit:^${DISTVERSION:R:S/./\./g}\.
 
 .include <bsd.port.pre.mk>
 .if ${PREFIX} == /usr
@@ -153,7 +153,7 @@ PLIST_SUB+=	OPENSSLDIR=${OPENSSLDIR:S=^${PREFIX}/==}
 post-patch:
 	${REINPLACE_CMD} -Ee 's|^(build\|install)_docs: .*|\1_docs: \1_man_docs|' \
 		${WRKSRC}/Configurations/unix-Makefile.tmpl
-	${REINPLACE_CMD} 's|SHLIB_VERSION=81.3|SHLIB_VERSION=${OPENSSL_SHLIBVER}|' \
+	${REINPLACE_CMD} 's|^SHLIB_VERSION=.*$$|SHLIB_VERSION=${OPENSSL_SHLIBVER}|' \
 		${WRKSRC}/VERSION.dat
 
 post-configure:

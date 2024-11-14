@@ -1,5 +1,5 @@
 PORTNAME=	curl
-PORTVERSION=	8.8.0
+PORTVERSION=	8.10.1
 CATEGORIES=	ftp net www
 MASTER_SITES=	https://curl.se/download/ \
 		https://github.com/curl/curl/releases/download/curl-${PORTVERSION:S|.|_|g}/
@@ -40,7 +40,7 @@ CPE_VENDOR=	haxx
 
 SHEBANG_FILES=	*/*.pl
 
-OPTIONS_DEFINE=	ALTSVC BROTLI COOKIES CURL_DEBUG DEBUG DOCS EXAMPLES IDN IPV6 NTLM PROXY PSL STATIC TLS_SRP ZSTD
+OPTIONS_DEFINE=	ALTSVC BROTLI COOKIES CURL_DEBUG DEBUG DOCS EXAMPLES IDN IPV6 LIBUV NTLM PROXY PSL STATIC TLS_SRP ZSTD
 OPTIONS_GROUP=	PROTOCOL
 OPTIONS_RADIO=	SSL
 OPTIONS_SINGLE=	GSSAPI RESOLV
@@ -64,6 +64,8 @@ LIBSSH_DESC=	SCP/SFTP support via libssh (requires OPENSSL)
 LIBSSH_IMPLIES=	OPENSSL
 LIBSSH2_DESC=	SCP/SFTP support via libssh2 (requires OPENSSL)
 LIBSSH2_IMPLIES=OPENSSL
+LIBUV_DESC=	Event-based tests
+LIBUV_IMPLIES=	DEBUG
 MQTT_DESC=	MQTT support
 POP3_DESC=	POP3/POP3S support
 PROXY_IMPLIES=	HTTP
@@ -122,6 +124,8 @@ LIBSSH_CONFIGURE_WITH=	libssh
 LIBSSH_LIB_DEPENDS=	libssh.so:security/libssh
 LIBSSH2_CONFIGURE_WITH=	libssh2
 LIBSSH2_LIB_DEPENDS=	libssh2.so:security/libssh2
+LIBUV_CONFIGURE_WITH=	libuv
+LIBUV_LIB_DEPENDS=	libuv.so:devel/libuv
 MQTT_CONFIGURE_ENABLE=	mqtt
 NTLM_CONFIGURE_ENABLE=	ntlm
 OPENSSL_CONFIGURE_ON=	--with-ca-fallback
@@ -161,8 +165,9 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/docs/libcurl/libcurl.m4 ${STAGEDIR}${PREFIX}/share/aclocal/
 
 post-install-DOCS-on:
-	${MKDIR} ${STAGEDIR}${DOCSDIR}/ ${STAGEDIR}${DOCSDIR}/libcurl/
+	${MKDIR} ${STAGEDIR}${DOCSDIR}/ ${STAGEDIR}${DOCSDIR}/internals/ ${STAGEDIR}${DOCSDIR}/libcurl/
 	cd ${WRKSRC}/docs/ && ${INSTALL_DATA} FAQ INSTALL KNOWN_BUGS THANKS TODO options-in-versions *.md ${STAGEDIR}${DOCSDIR}/
+	${INSTALL_DATA} ${WRKSRC}/docs/internals/*.md ${STAGEDIR}${DOCSDIR}/internals/
 	cd ${WRKSRC}/docs/libcurl/ && ${INSTALL_DATA} ABI.md libcurl.m4 *.pl symbols-in-versions ${STAGEDIR}${DOCSDIR}/libcurl/
 
 post-install-EXAMPLES-on:

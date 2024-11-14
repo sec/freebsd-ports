@@ -1,5 +1,5 @@
 PORTNAME=	arti
-DISTVERSION=	1.2.4
+DISTVERSION=	1.3.0
 PORTREVISION=	1
 CATEGORIES=	security
 
@@ -22,15 +22,14 @@ PLIST_SUB=	USERS="${USERS}" GROUPS="${GROUPS}"
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.torproject.org
 GL_ACCOUNT=	tpo/core
-GL_TAGNAME=	5217447873011338a5426898fcc8b96c8665babf
+GL_TAGNAME=	0a7ba1c3b5cd483efa50c02201b8ff50580d3f48
 CARGO_FEATURES=	tokio rustls
 CARGO_INSTALL=	no
 
 do-install:
-	${INSTALL_SCRIPT} ${CARGO_TARGET_DIR}/${CARGO_BUILD_TARGET}/*/arti ${STAGEDIR}${PREFIX}/bin/arti
+	${INSTALL_SCRIPT} ${CARGO_TARGET_DIR}/*/arti ${STAGEDIR}${PREFIX}/bin/arti
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/arti
 	@${MKDIR} ${STAGEDIR}${ETCDIR} ${STAGEDIR}/var/log/arti ${STAGEDIR}/var/run/arti ${STAGEDIR}/var/db/arti
 	${INSTALL_DATA} ${WRKSRC}/crates/arti/src/arti-example-config.toml ${STAGEDIR}${ETCDIR}/arti.toml.sample
 

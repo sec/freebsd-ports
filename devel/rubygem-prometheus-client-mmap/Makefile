@@ -1,6 +1,6 @@
 PORTNAME=	prometheus-client-mmap
 PORTVERSION=	1.1.1
-PORTREVISION=	4
+PORTREVISION=	7
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
@@ -34,7 +34,7 @@ post-extract:
 
 .include <bsd.port.options.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 RUBYGEM_ARGS+=		--with-cflags="-Wno-error=incompatible-function-pointer-types"
 .endif
 

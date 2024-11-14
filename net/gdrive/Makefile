@@ -1,6 +1,6 @@
 PORTNAME=	gdrive
 DISTVERSION=	2.1.1
-PORTREVISION=	21
+PORTREVISION=	22
 CATEGORIES=	net
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
@@ -15,6 +15,9 @@ COMMENT=	Google Drive CLI Client
 WWW=		https://github.com/prasmussen/gdrive
 
 LICENSE=	MIT
+
+DEPRECATED=	Abandonware, upstream repo archived Apr 19, 2023
+EXPIRATION_DATE=2024-11-30
 
 USES=		go
 USE_GITHUB=	yes

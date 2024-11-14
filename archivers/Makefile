@@ -11,6 +11,7 @@
     SUBDIR += arj
     SUBDIR += ark
     SUBDIR += ark-devel
+    SUBDIR += arqiver
     SUBDIR += atool
     SUBDIR += bicom
     SUBDIR += brotli
@@ -67,7 +68,7 @@
     SUBDIR += liblzxcomp
     SUBDIR += libmspack
     SUBDIR += libpar2
-    SUBDIR += librtfcomp
+    SUBDIR += libszip
     SUBDIR += libunrar
     SUBDIR += libzip
     SUBDIR += libzippp
@@ -141,7 +142,6 @@
     SUBDIR += p5-PerlIO-gzip
     SUBDIR += p5-PerlIO-via-Bzip2
     SUBDIR += packddir
-    SUBDIR += paq
     SUBDIR += par
     SUBDIR += par2cmdline
     SUBDIR += par2cmdline-turbo
@@ -155,6 +155,7 @@
     SUBDIR += peazip
     SUBDIR += pecl-lzf
     SUBDIR += pecl-rar
+    SUBDIR += pecl-zstd
     SUBDIR += php-brotli
     SUBDIR += php-horde_lz4
     SUBDIR += php-lz4
@@ -172,17 +173,21 @@
     SUBDIR += php83-phar
     SUBDIR += php83-zip
     SUBDIR += php83-zlib
+    SUBDIR += php84-bz2
+    SUBDIR += php84-phar
+    SUBDIR += php84-zip
+    SUBDIR += php84-zlib
     SUBDIR += pigz
     SUBDIR += pixz
     SUBDIR += plzip
     SUBDIR += ppmd
     SUBDIR += ppunpack
-    SUBDIR += pxz
     SUBDIR += py-acefile
     SUBDIR += py-bitshuffle
+    SUBDIR += py-blosc
     SUBDIR += py-blosc2
     SUBDIR += py-borgbackup
-    SUBDIR += py-borgbackup11
+    SUBDIR += py-borgbackup12
     SUBDIR += py-brotli
     SUBDIR += py-brotlicffi
     SUBDIR += py-brotlipy
@@ -218,7 +223,6 @@
     SUBDIR += rar
     SUBDIR += rpm2cpio
     SUBDIR += rpm4
-    SUBDIR += rubygem-archive-tar-minitar
     SUBDIR += rubygem-archive-zip
     SUBDIR += rubygem-bzip2-ffi
     SUBDIR += rubygem-bzip2-ruby
@@ -226,6 +230,8 @@
     SUBDIR += rubygem-libarchive
     SUBDIR += rubygem-minitar
     SUBDIR += rubygem-minitar-cli
+    SUBDIR += rubygem-minitar-cli0
+    SUBDIR += rubygem-minitar0
     SUBDIR += rubygem-ruby-xz
     SUBDIR += rubygem-rubyzip
     SUBDIR += rubygem-rubyzip13

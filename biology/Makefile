@@ -5,6 +5,7 @@
     SUBDIR += R-cran-BiocManager
     SUBDIR += abyss
     SUBDIR += ad2vcf
+    SUBDIR += andi
     SUBDIR += artemis
     SUBDIR += atac-seq
     SUBDIR += augustus
@@ -40,6 +41,7 @@
     SUBDIR += chip-seq
     SUBDIR += clustal-omega
     SUBDIR += clustalw
+    SUBDIR += coverm
     SUBDIR += cufflinks
     SUBDIR += cytoscape
     SUBDIR += ddocent
@@ -53,6 +55,7 @@
     SUBDIR += fasta
     SUBDIR += fasta3
     SUBDIR += fastahack
+    SUBDIR += fastani
     SUBDIR += fastdnaml
     SUBDIR += fastool
     SUBDIR += fastp
@@ -60,6 +63,7 @@
     SUBDIR += fastqc
     SUBDIR += fasttree
     SUBDIR += fastx-toolkit
+    SUBDIR += fermi-lite
     SUBDIR += figtree
     SUBDIR += flash
     SUBDIR += fluctuate
@@ -71,6 +75,7 @@
     SUBDIR += generand
     SUBDIR += gff2ps
     SUBDIR += gffread
+    SUBDIR += gkl
     SUBDIR += gmap
     SUBDIR += gperiodic
     SUBDIR += graphlan
@@ -103,6 +108,7 @@
     SUBDIR += mafft
     SUBDIR += mapm3
     SUBDIR += mashmap
+    SUBDIR += mca-calling
     SUBDIR += megahit
     SUBDIR += metaeuk
     SUBDIR += migrate

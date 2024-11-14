@@ -1,4 +1,4 @@
---- chrome/browser/ui/views/tabs/tab_hover_card_bubble_view.cc.orig	2024-06-17 12:56:06 UTC
+--- chrome/browser/ui/views/tabs/tab_hover_card_bubble_view.cc.orig	2024-10-22 08:31:56 UTC
 +++ chrome/browser/ui/views/tabs/tab_hover_card_bubble_view.cc
 @@ -375,7 +375,7 @@ TabHoverCardBubbleView::TabHoverCardBubbleView(Tab* ta
    // not become active. Setting this to false creates the need to explicitly

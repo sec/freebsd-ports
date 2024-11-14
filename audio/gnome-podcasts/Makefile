@@ -1,10 +1,10 @@
 PORTNAME=	podcasts
 DISTVERSION=	0.7.1
-PORTREVISION=	2
+PORTREVISION=	5
 CATEGORIES=	audio
 PKGNAMEPREFIX=	gnome-
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Podcast app for GNOME
 WWW=		https://gitlab.gnome.org/World/podcasts
 
@@ -39,7 +39,6 @@ post-patch:
 # Make each cargo subcommand very verbose
 # Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
-		-e "/cp/s,'${PORTNAME}-gtk' / 'src',& / '${CARGO_BUILD_TARGET}'," \
 		${WRKSRC}/${PORTNAME}-gtk/src/meson.build
 
 .include <bsd.port.mk>

@@ -1,7 +1,7 @@
 PORTNAME=	dbmail
 PORTVERSION=	3.4.1
-PORTREVISION=	2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	4
 CATEGORIES=	mail
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -57,7 +57,7 @@ PIDDIR?=	/var/run/dbmail
 
 .include <bsd.port.options.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=	-Wno-error=incompatible-function-pointer-types
 .endif
 

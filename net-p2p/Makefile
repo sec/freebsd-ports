@@ -72,9 +72,12 @@
     SUBDIR += p5-WWW-BitTorrent
     SUBDIR += phex
     SUBDIR += prowlarr
+    SUBDIR += pulsar-client-cpp
     SUBDIR += py-ed2k-tools
     SUBDIR += py-libtorrent-rasterbar
     SUBDIR += py-nicotine-plus
+    SUBDIR += py-pulsar-client
+    SUBDIR += py-stig
     SUBDIR += py-transmission-rpc
     SUBDIR += py-tremc
     SUBDIR += pyln-bolt7
@@ -100,6 +103,7 @@
     SUBDIR += udpt
     SUBDIR += uhub
     SUBDIR += vuze
+    SUBDIR += warpinator
     SUBDIR += xbt
     SUBDIR += xmrig
 

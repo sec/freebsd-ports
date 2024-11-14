@@ -29,6 +29,7 @@
     SUBDIR += c64bdf
     SUBDIR += cantarell-fonts
     SUBDIR += cascadia-code
+    SUBDIR += cascadia-next
     SUBDIR += charis
     SUBDIR += charis-compact
     SUBDIR += chomsky
@@ -143,6 +144,7 @@
     SUBDIR += intel-one-mono
     SUBDIR += intlfonts
     SUBDIR += iosevka
+    SUBDIR += iosevka-comfy
     SUBDIR += isabella
     SUBDIR += jetbrains-mono
     SUBDIR += jf-openhuninn
@@ -213,6 +215,7 @@
     SUBDIR += noto-sans-hebrew
     SUBDIR += noto-sans-hk
     SUBDIR += noto-sans-jp
+    SUBDIR += noto-sans-kannada
     SUBDIR += noto-sans-khmer
     SUBDIR += noto-sans-kr
     SUBDIR += noto-sans-lao
@@ -240,6 +243,7 @@
     SUBDIR += noto-serif-hebrew
     SUBDIR += noto-serif-hk
     SUBDIR += noto-serif-jp
+    SUBDIR += noto-serif-kannada
     SUBDIR += noto-serif-khmer
     SUBDIR += noto-serif-kr
     SUBDIR += noto-serif-lao
@@ -275,6 +279,7 @@
     SUBDIR += proggy_fonts
     SUBDIR += proggy_fonts-ttf
     SUBDIR += psftools
+    SUBDIR += py-FindSystemFontsFilename
     SUBDIR += py-QtAwesome
     SUBDIR += py-afdko
     SUBDIR += py-axisregistry
@@ -285,6 +290,7 @@
     SUBDIR += py-compreffor
     SUBDIR += py-cu2qu
     SUBDIR += py-defcon
+    SUBDIR += py-fclist-cffi
     SUBDIR += py-fontMath
     SUBDIR += py-fontfeatures
     SUBDIR += py-fontmake

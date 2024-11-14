@@ -5,7 +5,7 @@ CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
 
-MAINTAINER=			timur@FreeBSD.org
+MAINTAINER=			samba@FreeBSD.org
 COMMENT=			Free SMB/CIFS and AD/DC server and client for Unix
 WWW=				https://gitlab.com/samba-freebsd/
 
@@ -45,6 +45,7 @@ EXTRA_PATCHES=			\
 				${PATCHDIR}/0026-vfs-add-a-compatibility-option-to-the-vfs_streams_xa.patch:-p1 \
 				${PATCHDIR}/0027-Add-VFS-module-vfs_freebsd-that-implements-FreeBSD-s.patch:-p1 \
 				${PATCHDIR}/0028-s3-lib-system-add-FreeBSD-proc_fd_pattern.patch:-p1 \
+				${PATCHDIR}/0029-Fix-rl_completion_func_t.patch:-p1 \
 				${PATCHDIR}/0099-s3-modules-zfsacl-fix-get-set-ACL-on-FreeBSD-13.patch:-p1 \
 				${PATCHDIR}/0099-s4-mitkdc-Add-support-for-MIT-Kerberos-1.20.patch:-p1
 
@@ -106,6 +107,9 @@ CONFIGURE_LOG=			bin/config.log
 FLAVORS=			default externalldb
 FLAVOR?=			${FLAVORS:[1]}
 externalldb_PKGNAMESUFFIX=		-externalldb
+.if ${FLAVOR:U} == externalldb
+BROKEN=				fails to build; databases/ldb25 is not built with Python support by default
+.endif
 
 # Make sure that the right version of Python is used by the tools
 # https://bugzilla.samba.org/show_bug.cgi?id=7305

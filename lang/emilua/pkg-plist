@@ -35,7 +35,7 @@ include/emilua/unix.hpp
 include/emilua/windows.hpp
 lib/libemilua.so
 lib/libemilua.so.0
-lib/libemilua.so.0.8.4
+lib/libemilua.so.0.10.1
 libdata/pkgconfig/emilua.pc
 libexec/emilua/emilua_gperf.awk
 share/man/man1/emilua.1.gz
@@ -70,8 +70,8 @@ share/man/man3em/filesystem.equivalent.3em.gz
 share/man/man3em/filesystem.exists.3em.gz
 share/man/man3em/filesystem.file_size.3em.gz
 share/man/man3em/filesystem.hardlink_count.3em.gz
-share/man/man3em/filesystem.is_block_file.3em.gz
-share/man/man3em/filesystem.is_character_file.3em.gz
+share/man/man3em/filesystem.is_block_device.3em.gz
+share/man/man3em/filesystem.is_character_device.3em.gz
 share/man/man3em/filesystem.is_directory.3em.gz
 share/man/man3em/filesystem.is_empty.3em.gz
 share/man/man3em/filesystem.is_fifo.3em.gz
@@ -176,6 +176,7 @@ share/man/man3em/time.steady_timer.3em.gz
 share/man/man3em/time.system_clock.3em.gz
 share/man/man3em/time.system_timer.3em.gz
 share/man/man3em/tls.context.3em.gz
+share/man/man3em/tls.dial.3em.gz
 share/man/man3em/tls.socket.3em.gz
 share/man/man3em/unix.datagram.socket.3em.gz
 share/man/man3em/unix.dial.3em.gz

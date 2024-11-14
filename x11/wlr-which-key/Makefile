@@ -1,6 +1,6 @@
 PORTNAME=	wlr-which-key
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.1.3
+DISTVERSION=	1.0.1
 PORTREVISION=	3
 CATEGORIES=	x11 wayland
 
@@ -18,8 +18,5 @@ USE_GITHUB=	yes
 USE_GNOME=	cairo pango
 GH_ACCOUNT=	MaxVerevkin
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

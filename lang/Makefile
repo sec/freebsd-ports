@@ -74,7 +74,6 @@
     SUBDIR += f2c
     SUBDIR += fasm
     SUBDIR += fennel
-    SUBDIR += ferite
     SUBDIR += ficl
     SUBDIR += fpc
     SUBDIR += fpc-devel
@@ -88,9 +87,7 @@
     SUBDIR += gauche
     SUBDIR += gawk
     SUBDIR += gcc
-    SUBDIR += gcc10
     SUBDIR += gcc11
-    SUBDIR += gcc11-devel
     SUBDIR += gcc12
     SUBDIR += gcc12-devel
     SUBDIR += gcc13
@@ -124,6 +121,7 @@
     SUBDIR += go120
     SUBDIR += go121
     SUBDIR += go122
+    SUBDIR += go123
     SUBDIR += gomacro
     SUBDIR += gprolog
     SUBDIR += gptscript
@@ -240,6 +238,7 @@
     SUBDIR += p5-ExtUtils-F77
     SUBDIR += p5-Interpolation
     SUBDIR += p5-JSAN
+    SUBDIR += p5-JavaScript-QuickJS
     SUBDIR += p5-JavaScript-Squish
     SUBDIR += p5-JavaScript-Value-Escape
     SUBDIR += p5-List-MoreUtils
@@ -280,6 +279,8 @@
     SUBDIR += php82-extensions
     SUBDIR += php83
     SUBDIR += php83-extensions
+    SUBDIR += php84
+    SUBDIR += php84-extensions
     SUBDIR += picoc
     SUBDIR += picolisp
     SUBDIR += pkl
@@ -293,6 +294,7 @@
     SUBDIR += py-dhall
     SUBDIR += py-hy
     SUBDIR += py-lupa
+    SUBDIR += py-sly
     SUBDIR += py-textX
     SUBDIR += python
     SUBDIR += python-doc-html
@@ -357,6 +359,7 @@
     SUBDIR += snobol4
     SUBDIR += solidity
     SUBDIR += spidermonkey102
+    SUBDIR += spidermonkey128
     SUBDIR += spidermonkey78
     SUBDIR += spidermonkey91
     SUBDIR += spl

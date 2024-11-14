@@ -1,10 +1,12 @@
     COMMENT = Emulators for other operating systems
 
+    SUBDIR += 86Box
     SUBDIR += adamem
     SUBDIR += almostti
     SUBDIR += anese
     SUBDIR += aqemu
     SUBDIR += aranym
+    SUBDIR += ares
     SUBDIR += atari800
     SUBDIR += bfe
     SUBDIR += bochs
@@ -30,8 +32,10 @@
     SUBDIR += elliott-803
     SUBDIR += emu64
     SUBDIR += emulationstation
+    SUBDIR += es-de
     SUBDIR += fceux
     SUBDIR += flexemu
+    SUBDIR += flycast
     SUBDIR += fmsx
     SUBDIR += frodo
     SUBDIR += fs-uae
@@ -75,7 +79,6 @@
     SUBDIR += mednafen
     SUBDIR += mesen
     SUBDIR += mgba
-    SUBDIR += mtools
     SUBDIR += mupen64plus
     SUBDIR += mupen64plus-audio-sdl
     SUBDIR += mupen64plus-core
@@ -172,7 +175,6 @@
     SUBDIR += wine-mono
     SUBDIR += wine-mono-devel
     SUBDIR += wine-proton
-    SUBDIR += wine8
     SUBDIR += winetricks
     SUBDIR += x16-emulator
     SUBDIR += x16-rom

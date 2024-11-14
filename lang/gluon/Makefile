@@ -1,13 +1,14 @@
 PORTNAME=	gluon
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.18.2
-PORTREVISION=	4
+PORTREVISION=	7
 CATEGORIES=	lang
 PKGNAMESUFFIX=	-language
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Static, type inferred and embeddable language
-WWW=		https://gluon-lang.org
+WWW=		https://gluon-lang.org \
+		https://github.com/gluon-lang/gluon
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../LICENSE
@@ -396,8 +397,5 @@ PLIST_FILES=	bin/${PORTNAME}
 .if ${ARCH} == i386
 LTO_UNSAFE=	yes
 .endif
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

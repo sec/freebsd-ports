@@ -1179,7 +1179,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .    endif
 _EXPORTED_VARS+=	OSVERSION
 
-.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1303000 )
+.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1303000 || (${OSVERSION} >= 1400000 && ${OSVERSION} < 1401000))
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
 .      if defined(ALLOW_UNSUPPORTED_SYSTEM)
@@ -1616,6 +1616,7 @@ PKG_NOTE_flavor=	${FLAVOR}
 .    endif
 
 WRK_ENV+=		HOME=${WRKDIR} \
+				MACHINE_ARCH=${MACHINE_ARCH} \
 				PWD="$${PWD}" \
 				__MAKE_CONF=${NONEXISTENT}
 .    for e in OSVERSION PATH TERM TMPDIR \
@@ -1871,15 +1872,7 @@ PKG_DEPENDS+=	${LOCALBASE}/sbin/pkg:${PKG_ORIGIN}
 .    if defined(LLD_UNSAFE) && ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
 LDFLAGS+=	-fuse-ld=bfd
 BINARY_ALIAS+=	ld=${LD}
-.      if !defined(USE_BINUTILS)
-.        if exists(/usr/bin/ld.bfd)
-LD=	/usr/bin/ld.bfd
-CONFIGURE_ENV+=	LD=${LD}
-MAKE_ENV+=	LD=${LD}
-.        else
 USE_BINUTILS=	yes
-.        endif
-.      endif
 .    endif
 
 .    if defined(USE_BINUTILS) && !defined(DISABLE_BINUTILS)
@@ -2590,6 +2583,7 @@ VALID_CATEGORIES+= accessibility afterstep arabic archivers astro audio \
 	benchmarks biology budgie cad chinese comms converters \
 	databases deskutils devel dns docs \
 	editors education elisp emulators enlightenment finance french ftp \
+	filesystems \
 	games geography german gnome gnustep graphics \
 	hamradio haskell hebrew hungarian irc japanese java \
 	kde ${_KDE_CATEGORIES_SUPPORTED} kld korean \

@@ -1,6 +1,6 @@
 PORTNAME=	dra
-DISTVERSION=	0.5.3
-PORTREVISION=	3
+DISTVERSION=	0.6.3
+PORTREVISION=	1
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -15,69 +15,77 @@ USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	devmatteini
 
-CARGO_CRATES=	adler-1.0.2 \
+CARGO_CRATES=	adler2-2.0.0 \
 		aho-corasick-0.7.19 \
 		anstream-0.6.11 \
-		anstyle-1.0.0 \
+		anstyle-1.0.8 \
 		anstyle-parse-0.2.0 \
 		anstyle-query-1.0.0 \
 		anstyle-wincon-3.0.1 \
-		assert_cmd-2.0.14 \
+		arbitrary-1.3.2 \
+		assert_cmd-2.0.16 \
 		autocfg-1.1.0 \
-		base64-0.21.2 \
+		base64-0.22.1 \
 		bitflags-1.3.2 \
 		bitflags-2.4.0 \
 		bstr-1.6.0 \
-		byteorder-1.4.3 \
+		bumpalo-3.16.0 \
 		bzip2-0.4.4 \
 		bzip2-sys-0.1.11+1.0.8 \
-		cc-1.0.72 \
+		cc-1.1.15 \
 		cfg-if-1.0.0 \
-		cfg_aliases-0.1.1 \
-		clap-4.5.2 \
-		clap_builder-4.5.2 \
-		clap_complete-4.5.1 \
-		clap_derive-4.5.0 \
+		cfg_aliases-0.2.1 \
+		clap-4.5.18 \
+		clap_builder-4.5.18 \
+		clap_complete-4.5.29 \
+		clap_derive-4.5.18 \
 		clap_lex-0.7.0 \
 		colorchoice-1.0.0 \
 		console-0.15.0 \
-		crc32fast-1.3.2 \
-		crossbeam-utils-0.8.12 \
-		ctrlc-3.4.4 \
+		crc32fast-1.4.2 \
+		crossbeam-utils-0.8.20 \
+		ctrlc-3.4.5 \
+		derive_arbitrary-1.3.2 \
 		dialoguer-0.11.0 \
 		difflib-0.4.0 \
+		displaydoc-0.2.5 \
 		doc-comment-0.3.3 \
 		encode_unicode-0.3.6 \
-		errno-0.3.5 \
+		equivalent-1.0.1 \
+		errno-0.3.9 \
 		fastrand-1.9.0 \
 		filetime-0.2.17 \
-		flate2-1.0.28 \
+		flate2-1.0.34 \
 		float-cmp-0.9.0 \
 		form_urlencoded-1.0.1 \
 		getrandom-0.2.10 \
-		heck-0.4.0 \
+		hashbrown-0.15.0 \
+		heck-0.5.0 \
 		idna-0.2.3 \
+		indexmap-2.6.0 \
 		indicatif-0.17.8 \
 		instant-0.1.12 \
 		io-lifetimes-1.0.2 \
 		itoa-1.0.6 \
-		libc-0.2.153 \
-		libz-sys-1.1.8 \
+		libc-0.2.158 \
+		libz-sys-1.1.20 \
 		linux-raw-sys-0.1.3 \
-		log-0.4.14 \
+		linux-raw-sys-0.4.14 \
+		lockfree-object-pool-0.1.6 \
+		log-0.4.22 \
 		lzma-sys-0.1.19 \
 		matches-0.1.9 \
-		memchr-2.5.0 \
-		miniz_oxide-0.7.1 \
-		nix-0.28.0 \
+		memchr-2.7.4 \
+		miniz_oxide-0.8.0 \
+		nix-0.29.0 \
 		normalize-line-endings-0.3.0 \
 		num-traits-0.2.15 \
 		number_prefix-0.4.0 \
-		once_cell-1.13.0 \
+		once_cell-1.19.0 \
 		percent-encoding-2.1.0 \
 		pkg-config-0.3.25 \
 		portable-atomic-1.3.3 \
-		predicates-3.1.0 \
+		predicates-3.1.2 \
 		predicates-core-1.0.6 \
 		predicates-tree-1.0.5 \
 		proc-macro-error-1.0.4 \
@@ -90,29 +98,32 @@ CARGO_CRATES=	adler-1.0.2 \
 		regex-syntax-0.6.26 \
 		ring-0.17.3 \
 		rustix-0.36.16 \
-		rustls-0.22.2 \
-		rustls-pki-types-1.3.1 \
-		rustls-webpki-0.102.2 \
+		rustix-0.38.37 \
+		rustls-0.23.12 \
+		rustls-pki-types-1.7.0 \
+		rustls-webpki-0.102.6 \
 		ryu-1.0.6 \
 		same-file-1.0.6 \
-		serde-1.0.197 \
-		serde_derive-1.0.197 \
+		serde-1.0.210 \
+		serde_derive-1.0.210 \
 		serde_json-1.0.99 \
 		shell-words-1.1.0 \
+		shlex-1.3.0 \
+		simd-adler32-0.3.7 \
 		spin-0.9.8 \
 		strsim-0.11.0 \
 		subtle-2.5.0 \
 		syn-1.0.104 \
 		syn-2.0.48 \
-		tar-0.4.40 \
+		tar-0.4.42 \
 		tempfile-3.4.0 \
 		terminal_size-0.1.17 \
 		termtree-0.2.4 \
 		test-case-3.3.1 \
 		test-case-core-3.2.1 \
 		test-case-macros-3.2.1 \
-		thiserror-1.0.49 \
-		thiserror-impl-1.0.49 \
+		thiserror-1.0.65 \
+		thiserror-impl-1.0.65 \
 		tinyvec-1.5.1 \
 		tinyvec_macros-0.1.0 \
 		unicode-bidi-0.3.7 \
@@ -120,11 +131,11 @@ CARGO_CRATES=	adler-1.0.2 \
 		unicode-normalization-0.1.19 \
 		unicode-width-0.1.9 \
 		untrusted-0.9.0 \
-		ureq-2.9.6 \
+		ureq-2.10.1 \
 		url-2.2.2 \
 		urlencoding-2.1.3 \
 		utf8parse-0.2.1 \
-		uuid-1.7.0 \
+		uuid-1.11.0 \
 		vcpkg-0.2.15 \
 		version_check-0.9.3 \
 		wait-timeout-0.2.0 \
@@ -140,43 +151,43 @@ CARGO_CRATES=	adler-1.0.2 \
 		windows-sys-0.45.0 \
 		windows-sys-0.48.0 \
 		windows-sys-0.52.0 \
+		windows-sys-0.59.0 \
 		windows-targets-0.42.1 \
 		windows-targets-0.48.0 \
-		windows-targets-0.52.0 \
+		windows-targets-0.52.6 \
 		windows_aarch64_gnullvm-0.42.1 \
 		windows_aarch64_gnullvm-0.48.0 \
-		windows_aarch64_gnullvm-0.52.0 \
+		windows_aarch64_gnullvm-0.52.6 \
 		windows_aarch64_msvc-0.36.1 \
 		windows_aarch64_msvc-0.42.1 \
 		windows_aarch64_msvc-0.48.0 \
-		windows_aarch64_msvc-0.52.0 \
+		windows_aarch64_msvc-0.52.6 \
 		windows_i686_gnu-0.36.1 \
 		windows_i686_gnu-0.42.1 \
 		windows_i686_gnu-0.48.0 \
-		windows_i686_gnu-0.52.0 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnullvm-0.52.6 \
 		windows_i686_msvc-0.36.1 \
 		windows_i686_msvc-0.42.1 \
 		windows_i686_msvc-0.48.0 \
-		windows_i686_msvc-0.52.0 \
+		windows_i686_msvc-0.52.6 \
 		windows_x86_64_gnu-0.36.1 \
 		windows_x86_64_gnu-0.42.1 \
 		windows_x86_64_gnu-0.48.0 \
-		windows_x86_64_gnu-0.52.0 \
+		windows_x86_64_gnu-0.52.6 \
 		windows_x86_64_gnullvm-0.42.1 \
 		windows_x86_64_gnullvm-0.48.0 \
-		windows_x86_64_gnullvm-0.52.0 \
+		windows_x86_64_gnullvm-0.52.6 \
 		windows_x86_64_msvc-0.36.1 \
 		windows_x86_64_msvc-0.42.1 \
 		windows_x86_64_msvc-0.48.0 \
-		windows_x86_64_msvc-0.52.0 \
-		xattr-1.0.1 \
+		windows_x86_64_msvc-0.52.6 \
+		xattr-1.3.1 \
 		xz2-0.1.7 \
-		zeroize-1.7.0 \
-		zip-0.6.6
+		zeroize-1.8.1 \
+		zip-2.2.0 \
+		zopfli-0.8.1
 
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

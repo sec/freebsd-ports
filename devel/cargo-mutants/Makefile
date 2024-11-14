@@ -1,6 +1,6 @@
 PORTNAME=	cargo-mutants
 DISTVERSIONPREFIX=	v
-DISTVERSION=	24.7.0
+DISTVERSION=	24.11.0
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -9,6 +9,8 @@ WWW=		https://mutants.rs/
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	compilation fails, see https://github.com/sourcefrog/cargo-mutants/issues/380
 
 USES=		cargo
 
@@ -53,7 +55,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		colorchoice-1.0.1 \
 		console-0.15.0 \
 		core-foundation-sys-0.8.6 \
-		cp_r-0.5.1 \
+		cp_r-0.5.2 \
 		crossbeam-channel-0.5.13 \
 		crossbeam-utils-0.8.20 \
 		ctor-0.1.26 \
@@ -70,7 +72,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		filetime-0.2.23 \
 		float-cmp-0.9.0 \
 		fnv-1.0.7 \
-		fs2-0.4.0 \
+		fs2-0.4.3 \
 		globset-0.4.10 \
 		hashbrown-0.12.3 \
 		hashbrown-0.14.5 \
@@ -90,8 +92,8 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		itertools-0.10.5 \
 		itertools-0.12.0 \
 		itoa-1.0.11 \
+		jobserver-0.1.31 \
 		js-sys-0.3.69 \
-		kernel32-sys-0.2.2 \
 		lazy_static-1.4.0 \
 		libc-0.2.155 \
 		linked-hash-map-0.5.6 \
@@ -111,6 +113,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		nu-ansi-term-0.46.0 \
 		num-conv-0.1.0 \
 		num-traits-0.2.19 \
+		num_cpus-1.16.0 \
 		nutmeg-0.1.4 \
 		once_cell-1.19.0 \
 		output_vt100-0.1.3 \
@@ -154,7 +157,6 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		strsim-0.10.0 \
 		strum-0.26.0 \
 		strum_macros-0.26.4 \
-		subprocess-0.2.8 \
 		syn-1.0.109 \
 		syn-2.0.46 \
 		tempfile-3.9.0 \
@@ -190,9 +192,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		wasm-bindgen-shared-0.2.92 \
 		web-sys-0.3.69 \
 		whoami-1.5.0 \
-		winapi-0.2.8 \
 		winapi-0.3.9 \
-		winapi-build-0.1.1 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
 		winapi-util-0.1.8 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
@@ -221,8 +221,5 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		yansi-0.5.1
 
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

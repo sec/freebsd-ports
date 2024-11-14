@@ -1,9 +1,13 @@
 PORTNAME=	qtcreator
-DISTVERSION=	13.0.2
+DISTVERSION=	14.0.2
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	QT/official_releases/qtcreator/${DISTVERSION:R}/${DISTVERSION}
 DISTNAME=	qt-creator-opensource-src-${DISTVERSION}
 DIST_SUBDIR=	KDE/Qt/qtcreator
+
+PATCH_SITES=	https://github.com/qt-creator/qt-creator/commit/
+PATCHFILES+=	f175ec933f1c5c5d7a345edbaacc8ff90202aee2.patch:-p1 # clang-format19 fix; will be in qtcreator 15.0
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	C++ and QML IDE for Qt development
@@ -41,8 +45,10 @@ CMAKE_ARGS+=	-DCMAKE_PREFIX_PATH:STRING="${LLVM_PREFIX};${PREFIX}"
 CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_elfutils \
 		CMAKE_DISABLE_FIND_PACKAGE_Googletest
 # - Disable precompiled headers for now, they are missing compile flags.
+# - Disable the AppStatisticsPlugin for now, not implemented for FreeBSD.
 # - Suppress installed yaml-cpp, use bundled.
 CMAKE_OFF=	BUILD_WITH_PCH \
+		BUILD_PLUGIN_APPSTATISTICSMONITOR \
 		yaml-cpp_FOUND
 
 LDFLAGS+=	-lexecinfo
