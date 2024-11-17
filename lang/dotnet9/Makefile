@@ -86,6 +86,7 @@ do-build:
 		--clean-while-building \
 		--with-sdk ${WRKDIR}/bootstrap_sdk \
 		--with-packages ${WRKDIR}/packages \
+		-sb \
 		-- \
 		-maxcpucount:${MAKE_JOBS_NUMBER}
 
