@@ -46,16 +46,17 @@ BOOTSTRAP_SOURCEBUILT_ARTIFACTS_DISTNAME=	Private.SourceBuilt.Artifacts.${BOOTST
 BOOTSTRAP_SDK_DISTNAME=				dotnet-sdk-${BOOTSTRAP_SDKVERSION}${BOOTSTRAP_SDKVERSIONBINSUFFIX}-freebsd-${DOTNET_ARCH}
 
 DOTNETVERSION=			9.0
-SDKVERSION=			${DOTNETVERSION}.0
-SDKVERSIONSUFFIX=		-servicing.24523.1
-SOURCEBUILT_ARTIFACTS_DISTNAME=	Private.SourceBuilt.Artifacts.${SDKVERSION}${SDKVERSIONSUFFIX}.freebsd.13-${DOTNET_ARCH}
-SDK_DISTNAME=			dotnet-sdk-${SDKVERSION}-freebsd-${DOTNET_ARCH}
+SDKVERSION=			${DOTNETVERSION}.100
+SDKVERSIONSUFFIX=		-rtm.24529.1
+SDK_DISTNAME=			dotnet-sdk-${SDKVERSION}-${SDK_RID}
 DOTNET_ARCH=				${ARCH:S|amd64|x64|:C|aarch64|arm64|}
+SDK_RID=	freebsd.${_OSVERSION_MAJOR}-${DOTNET_ARCH}
 
-PLIST_SUB=			DOTNET_ARCH=${DOTNET_ARCH} FULL_DOTNETVERSION=${PORTVERSION} \
+PLIST_SUB=		DOTNET_ARCH=${DOTNET_ARCH} FULL_DOTNETVERSION=${PORTVERSION} \
 				DOTNETVERSION=${DOTNETVERSION} \
 				SDKVERSION=${SDKVERSION} SDKVERSIONSUFFIX=${SDKVERSIONSUFFIX} \
-				BOOTSTRAP_SDKVERSION=${BOOTSTRAP_SDKVERSION}
+				BOOTSTRAP_SDKVERSION=${BOOTSTRAP_SDKVERSION} \
+				SDK_RID=${SDK_RID}
 
 .include <bsd.port.pre.mk>
 
@@ -80,6 +81,8 @@ post-extract:
 
 	${ELFCTL} -e +noaslr ${WRKDIR}/bootstrap_sdk/dotnet
 
+	@${REINPLACE_CMD} -e 's|linux-${DOTNET_ARCH}|freebsd-${DOTNET_ARCH}|g' ${WRKDIR}/bootstrap_sdk/sdk/${BOOTSTRAP_SDKVERSION}${BOOTSTRAP_SDKVERSIONBINSUFFIX}/Microsoft.NETCoreSdk.BundledVersions.props
+
 do-build:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${DOTNET_ENV} ./build.sh \
 		--release-manifest release.json \
@@ -92,26 +95,15 @@ do-build:
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/dotnet
-	${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${WRKSRC}/artifacts/${DOTNET_ARCH}/Release/${SDK_DISTNAME}${EXTRACT_SUFX} -C ${STAGEDIR}${PREFIX}/dotnet ${EXTRACT_AFTER_ARGS}
+	${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${WRKSRC}/artifacts/assets/Release/${SDK_DISTNAME}${EXTRACT_SUFX} -C ${STAGEDIR}${PREFIX}/dotnet ${EXTRACT_AFTER_ARGS}
 	${ELFCTL} -e +noaslr ${STAGEDIR}${PREFIX}/dotnet/dotnet
 
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/dotnet
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/sdk/${SDKVERSION}/AppHostTemplate/apphost
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.freebsd-${DOTNET_ARCH}/${DISTVERSION}/runtimes/freebsd-${DOTNET_ARCH}/native/apphost
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.freebsd-${DOTNET_ARCH}/${DISTVERSION}/runtimes/freebsd-${DOTNET_ARCH}/native/singlefilehost
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.${SDK_RID}/${DISTVERSION}/runtimes/${SDK_RID}/native/apphost
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.${SDK_RID}/${DISTVERSION}/runtimes/${SDK_RID}/native/singlefilehost
 	${FIND} ${STAGEDIR}${PREFIX}/dotnet -name "*.so" -exec ${STRIP_CMD} -s "{}" ";"
 
 	${RLN} ${STAGEDIR}${PREFIX}/dotnet/dotnet ${STAGEDIR}${PREFIX}/bin/dotnet
-
-bootstrap-makesum:
-	cd ${WRKSRC}/artifacts/${DOTNET_ARCH}/Release && sha256 ${SOURCEBUILT_ARTIFACTS_DISTNAME}${EXTRACT_SUFX}
-	@${ECHO_CMD} -n "SIZE (${SOURCEBUILT_ARTIFACTS_DISTNAME}${EXTRACT_SUFX}) = "
-	@${STAT} -f %z ${WRKSRC}/artifacts/${DOTNET_ARCH}/Release/${SOURCEBUILT_ARTIFACTS_DISTNAME}${EXTRACT_SUFX}
-
-	@cd ${WRKSRC}/artifacts/${DOTNET_ARCH}/Release && sha256 ${SDK_DISTNAME}${EXTRACT_SUFX}
-	@${ECHO_CMD} -n "SIZE (${SDK_DISTNAME}${EXTRACT_SUFX}) = "
-	@${STAT} -f %z ${WRKSRC}/artifacts/${DOTNET_ARCH}/Release/${SDK_DISTNAME}${EXTRACT_SUFX}
-
-	@${ECHO_CMD}
 
 .include <bsd.port.post.mk>
