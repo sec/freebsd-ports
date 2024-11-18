@@ -60,10 +60,6 @@ PLIST_SUB=		DOTNET_ARCH=${DOTNET_ARCH} FULL_DOTNETVERSION=${PORTVERSION} \
 
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} >= 1400000
-LIB_DEPENDS+=	libcrypto.so.111:misc/compat13x
-.endif
-
 post-extract:
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/release.json-${PORTVERSION} ${WRKSRC}/release.json
 
