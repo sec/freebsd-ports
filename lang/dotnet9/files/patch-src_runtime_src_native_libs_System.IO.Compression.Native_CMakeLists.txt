@@ -1,0 +1,13 @@
+--- src/runtime/src/native/libs/System.IO.Compression.Native/CMakeLists.txt.orig	2024-11-18 11:17:28 UTC
++++ src/runtime/src/native/libs/System.IO.Compression.Native/CMakeLists.txt
+@@ -16,8 +16,9 @@ set(NATIVECOMPRESSION_SOURCES
+ 
+ if (NOT CLR_CMAKE_TARGET_BROWSER AND NOT CLR_CMAKE_TARGET_WASI)
+ 
+-    if (CLR_CMAKE_USE_SYSTEM_BROTLI)
++    if (CLR_CMAKE_USE_SYSTEM_BROTLI)        
+         add_definitions(-DFEATURE_USE_SYSTEM_BROTLI)
++        include_directories(/usr/local/include)
+     else ()
+         include(${CLR_SRC_NATIVE_DIR}/external/brotli.cmake)
+ 
