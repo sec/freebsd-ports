@@ -1,7 +1,3 @@
-bin/dotnet
-dotnet/LICENSE.txt
-dotnet/ThirdPartyNotices.txt
-dotnet/dotnet
 dotnet/host/fxr/%%FULL_DOTNETVERSION%%/libhostfxr.so
 dotnet/metadata/workloads/%%BOOTSTRAP_SDKVERSION%%/userlocal
 dotnet/packs/Microsoft.AspNetCore.App.Ref/%%FULL_DOTNETVERSION%%/analyzers/dotnet/cs/Microsoft.AspNetCore.App.Analyzers.dll

@@ -27,7 +27,8 @@ LIB_DEPENDS=	libbrotlienc.so:archivers/brotli \
 		libicuuc.so:devel/icu \
 		libinotify.so:devel/libinotify \
 		libunwind.so:devel/libunwind
-RUN_DEPENDS=	terminfo-db>0:misc/terminfo-db
+RUN_DEPENDS=	terminfo-db>0:misc/terminfo-db \
+		${LOCALBASE}/dotnet/dotnet:lang/dotnet-host
 
 USES=		autoreconf:build gssapi:mit llvm:noexport pkgconfig \
 		python:build,3.9+ shebangfix ssl
@@ -100,13 +101,12 @@ do-build:
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/dotnet
 	${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${WRKSRC}/artifacts/assets/Release/${SDK_DISTNAME}${EXTRACT_SUFX} -C ${STAGEDIR}${PREFIX}/dotnet ${EXTRACT_AFTER_ARGS}
-	${ELFCTL} -e +noaslr ${STAGEDIR}${PREFIX}/dotnet/dotnet
 
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/dotnet
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/sdk/${SDKVERSION}/AppHostTemplate/apphost
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.${SDK_RID}/${DISTVERSION}/runtimes/${SDK_RID}/native/apphost
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/dotnet/packs/Microsoft.NETCore.App.Host.${SDK_RID}/${DISTVERSION}/runtimes/${SDK_RID}/native/singlefilehost
 	${FIND} ${STAGEDIR}${PREFIX}/dotnet -name "*.so" -exec ${STRIP_CMD} -s "{}" ";"
+	${FIND} ${WRKSRC}/artifacts/packages/Release -name "*freebsd*.nupkg" -exec cp "{}" ${STAGEDIR}${PREFIX}/dotnet/library-packs/ ";"
 
 	${RLN} ${STAGEDIR}${PREFIX}/dotnet/dotnet ${STAGEDIR}${PREFIX}/bin/dotnet
 
