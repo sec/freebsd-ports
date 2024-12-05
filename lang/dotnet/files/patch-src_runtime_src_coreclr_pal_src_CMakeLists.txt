@@ -1,0 +1,11 @@
+--- src/runtime/src/coreclr/pal/src/CMakeLists.txt.orig
++++ src/runtime/src/coreclr/pal/src/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ if(CLR_CMAKE_TARGET_OSX OR CLR_CMAKE_TARGET_FREEBSD OR CLR_CMAKE_TARGET_HAIKU)
+   # On OSX and *BSD, we use the libunwind that's part of the OS
+   # On Haiku, we used a special port of libunwind
+-  set(CLR_CMAKE_USE_SYSTEM_LIBUNWIND 1)
++  set(CLR_CMAKE_USE_SYSTEM_LIBUNWIND 0)
+ endif(CLR_CMAKE_TARGET_OSX OR CLR_CMAKE_TARGET_FREEBSD OR CLR_CMAKE_TARGET_HAIKU)
+
+ if(NOT DEFINED ENV{ROOTFS_DIR})

@@ -1,0 +1,11 @@
+--- src/runtime/src/native/corehost/apphost/static/CMakeLists.txt.orig
++++ src/runtime/src/native/corehost/apphost/static/CMakeLists.txt
+@@ -244,7 +244,7 @@ endif(CLR_CMAKE_TARGET_APPLE)
+
+ # On *BSD, we always use the libunwind that's part of the OS
+ if(CLR_CMAKE_TARGET_FREEBSD)
+-  set(CLR_CMAKE_USE_SYSTEM_LIBUNWIND 1)
++  set(CLR_CMAKE_USE_SYSTEM_LIBUNWIND 0)
+ endif()
+
+ if(CLR_CMAKE_USE_SYSTEM_LIBUNWIND AND NOT CLR_CMAKE_TARGET_APPLE)
