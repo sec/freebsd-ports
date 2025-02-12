@@ -11,7 +11,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 ONLY_FOR_ARCHS=	aarch64 amd64
 
-BUILD_DEPENDS=	dotnet:lang/dotnet
+BUILD_DEPENDS=	dotnet>=9.0.1:lang/dotnet
 LIB_DEPENDS=	libinotify.so:devel/libinotify \
 		libunwind.so:devel/libunwind
 

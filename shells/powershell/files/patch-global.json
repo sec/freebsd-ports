@@ -1,9 +1,12 @@
---- global.json.orig	2024-04-11 18:38:22 UTC
+diff --git a/global.json.orig b/global.json
+index ee2876ea5700..408e256cdb1d 100644
+--- global.json.orig
 +++ global.json
-@@ -1,5 +1,5 @@
+@@ -1,5 +1,6 @@
  {
    "sdk": {
 -    "version": "9.0.102"
-+    "version": "9.0.101"
++    "version": "9.0.0",
++    "rollForward": "feature"
    }
  }
