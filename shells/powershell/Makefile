@@ -89,6 +89,7 @@ NUPKG_NUGET=	DotNetAnalyzers.DocumentationAnalyzers:1.0.0-beta.59 \
 		System.Buffers:4.5.1 \
 		System.CodeDom:9.0.1 \
 		System.Collections.Immutable:9.0.1 \
+		System.Collections.Immutable:8.0.0 \
 		System.ComponentModel.Composition:9.0.1 \
 		System.ComponentModel.Composition.Registration:9.0.1 \
 		System.Configuration.ConfigurationManager:9.0.1 \
@@ -131,6 +132,7 @@ NUPKG_NUGET=	DotNetAnalyzers.DocumentationAnalyzers:1.0.0-beta.59 \
 		System.ServiceProcess.ServiceController:9.0.1 \
 		System.Speech:9.0.1 \
 		System.Text.Encoding.CodePages:7.0.0 \
+		System.Text.Encoding.CodePages:8.0.0 \
 		System.Text.Encoding.CodePages:9.0.1 \
 		System.Text.Encodings.Web:6.0.0 \
 		System.Text.Encodings.Web:9.0.1 \
